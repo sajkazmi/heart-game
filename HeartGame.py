@@ -17,8 +17,8 @@ with open("./wordlist.10000.txt") as word_file:
 Keyboard_App = tkinter.Tk()
 Keyboard_App.title("Heart Game")
 Keyboard_App['bg'] = 'blue'
-#Keyboard_App.resizable(0, 0)
-Keyboard_App.geometry("350x625")
+# Keyboard_App.resizable(0, 0)
+Keyboard_App.geometry("380x660")
 
 
 def select(value):
@@ -31,36 +31,128 @@ def select(value):
         entry.insert(tkinter.END, value)
 
 
-label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+(random.choice(words)), font=(
-    "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, sticky=W)
+translate = random.choice(words)
+
+label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 # for adjusting location and size of text box
 entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
 entry.grid(row=1, columnspan=40, pady=10)
 
-buttons = ['I', 'R', 'Pipe', '9',
-           'H', 'Q', 'Z', '8',
-           'G', 'P', 'Y', '7',
-           'F', 'O', 'X', '6',
-           'E', 'N', 'W', '5',
-           'D', 'M', 'V', '4',
-           'C', 'L', 'U', '3',
-           'B', 'K', 'T', '2',
-           'A', 'J', 'S', '1',
-           '0', '1', '2', 'Level']
+buttons = ['i', 'r', '|', '9',
+           'h', 'q', 'z', '8',
+           'g', 'p', 'y', '7',
+           'f', 'o', 'x', '6',
+           'e', 'n', 'w', '5',
+           'd', 'm', 'v', '4',
+           'c', 'l', 'u', '3',
+           'b', 'k', 't', '2',
+           'a', 'j', 's', '1',
+           '0', '1', '2', '/']
 
 varRow = 2
 varColumn = 0
 
+correctNotationInitial = translate[0]
+
+
+# Alphabet Numerical Equivalence follows:
+if correctNotationInitial == '0':
+    Box = "00"
+elif correctNotationInitial == 'a':
+    Box = "01"
+elif correctNotationInitial == 'b':
+    Box = "02"
+elif correctNotationInitial == 'c':
+    Box = "03"
+elif correctNotationInitial == 'd':
+    Box = "04"
+elif correctNotationInitial == 'e':
+    Box = "05"
+elif correctNotationInitial == 'f':
+    Box = "06"
+elif correctNotationInitial == 'g':
+    Box = "07"
+elif correctNotationInitial == 'h':
+    Box = "08"
+elif correctNotationInitial == 'i':
+    Box = "09"
+elif correctNotationInitial == '1':
+    Box = "10"
+elif correctNotationInitial == 'j':
+    Box = "11"
+elif correctNotationInitial == 'k':
+    Box = "12"
+elif correctNotationInitial == 'l':
+    Box = "13"
+elif correctNotationInitial == 'm':
+    Box = "14"
+elif correctNotationInitial == 'n':
+    Box = "15"
+elif correctNotationInitial == 'o':
+    Box = "16"
+elif correctNotationInitial == 'p':
+    Box = "17"
+elif correctNotationInitial == 'q':
+    Box = "18"
+elif correctNotationInitial == 'r':
+    Box = "19"
+elif correctNotationInitial == '2':
+    Box = "20"
+elif correctNotationInitial == 's':
+    Box = "21"
+elif correctNotationInitial == 't':
+    Box = "22"
+elif correctNotationInitial == 'u':
+    Box = "23"
+elif correctNotationInitial == 'v':
+    Box = "24"
+elif correctNotationInitial == 'w':
+    Box = "25"
+elif correctNotationInitial == 'x':
+    Box = "26"
+elif correctNotationInitial == 'y':
+    Box = "27"
+elif correctNotationInitial == 'z':
+    Box = "28"
+
+BoxFirst = Box[0]
+BoxSecond = Box[1]
+length = str(len(translate))
+
+# Root letters
+if BoxSecond == "1":
+    ANE = "a"
+elif BoxSecond == "2":
+    ANE = "b"
+elif BoxSecond == "3":
+    ANE = "c"
+elif BoxSecond == "4":
+    ANE = "d"
+elif BoxSecond == "5":
+    ANE = "e"
+elif BoxSecond == "6":
+    ANE = "f"
+elif BoxSecond == "7":
+    ANE = "g"
+elif BoxSecond == "8":
+    ANE = "h"
+elif BoxSecond == "9":
+    ANE = "i"
+
+print(BoxFirst+BoxSecond+ANE+length)
+
+
 for button in buttons:
     def command(x=button): select(x)
-    if button != " Level ":
-        tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 10, ' bold'), bg='blue',
+    if button != " / ":
+        tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
                        activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
             row=varRow, column=varColumn)
 
-    if button == " Level ":
-        tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 10, ' bold'), bg='blue',
+    if button == " / ":
+        tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
                        activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
             row=6, column=4)
 
