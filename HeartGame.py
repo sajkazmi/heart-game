@@ -141,7 +141,19 @@ elif BoxSecond == "8":
 elif BoxSecond == "9":
     ANE = "i"
 
-print(BoxFirst+BoxSecond+ANE+length)
+correctNOTATION = BoxFirst+BoxSecond+ANE+length
+
+print(correctNOTATION)
+
+
+def get_value():
+    e_text = entry.get()
+    if e_text == correctNOTATION:
+        print("Correct")
+
+
+# if entry == correctNOTATION:
+#  print("Correct")
 
 
 for button in buttons:
