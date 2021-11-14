@@ -4,6 +4,7 @@
 import random
 import tkinter
 from tkinter import*
+from tkinter import messagebox
 from functools import partial
 import tkinter as tk
 
@@ -27,6 +28,11 @@ def select(value):
 
     elif value == "Tab":
         entry.insert(tkinter.END, '     ')
+    elif value == "/":
+        if entry.get("1.0",'end-1c') == correctNOTATION:
+            messagebox.showinfo("Result", "CORRECT!")
+        else:
+            messagebox.showinfo("Result", "Please Try Again!")    
     else:
         entry.insert(tkinter.END, value)
 
