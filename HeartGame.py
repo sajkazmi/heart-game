@@ -36,7 +36,7 @@ def select(value):
             
         else:
             # Sound.mute()
-            messagebox.showinfo("Result", "Incorrect; the Correct answer is:" + correctNOTATION)    
+            messagebox.showinfo("Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)  
             
     else:
         entry.insert(tkinter.END, value)
