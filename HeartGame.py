@@ -5,6 +5,7 @@ import random
 import tkinter
 from tkinter import*
 from tkinter import messagebox
+# from sound import Sound
 from functools import partial
 import tkinter as tk
 
@@ -30,9 +31,13 @@ def select(value):
         entry.insert(tkinter.END, '     ')
     elif value == "/":
         if entry.get("1.0",'end-1c') == correctNOTATION:
+            # Sound.mute()    
             messagebox.showinfo("Result", "CORRECT!")
+            
         else:
-            messagebox.showinfo("Result", "Please Try Again!")    
+            # Sound.mute()
+            messagebox.showinfo("Result", "Incorrect; the Correct answer is:" + correctNOTATION)    
+            
     else:
         entry.insert(tkinter.END, value)
 
