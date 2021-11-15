@@ -1,14 +1,16 @@
 # Thank you to DJ Oamen (https://youtu.be/3PXfTTcLXqA) for his demonstration titled
 # "How to Create a GUI Onscreen Keyboard in Python - Tutorial"
 
-import random
-import tkinter
-from tkinter import*
-from tkinter import messagebox
-import keyboard
-# from sound import Sound
-from functools import partial
 import tkinter as tk
+from functools import partial
+from tkinter import messagebox
+from tkinter import*
+import tkinter
+import random
+
+
+#  from keyboard import Keyboard
+# from sound import Sound
 
 # app = tk.Tk()
 # app.geometry("40x40")
@@ -24,38 +26,37 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("380x660")
 
 
-
 for word in words:
-        def select(value):
-            # Keyboard_App.destroy()
-            # if value == "Backspace":
-                # if entry.insert(0, value):
-                    # entry.delete(0, "end")  
-            # if value == keyboard.is_pressed('q'):
-                # print('You pressed Exit!')
-            if value == " Space ":
-                entry.insert(tkinter.END, '   ')
+    def select(value):
+        # Keyboard_App.destroy()
+        # if value == "Backspace":
+        # if entry.insert(0, value):
+        # entry.delete(0, "end")
+        # if value == keyboard.is_pressed('q'):
+        # print('You pressed Exit!')
+        if value == " Space ":
+            entry.insert(tkinter.END, '   ')
 
-            elif value == "Tab":
-                entry.insert(tkinter.END, '     ')
-            elif value == "/":
-                if entry.get("1.0",'end-1c') == correctNOTATION:
-                    # Sound.mute()    
-                    messagebox.showinfo("Result", "CORRECT!")
-                elif entry.get("1.0",'end-1c') == "e":
-                    messagebox.showinfo("Bye","You pressed EXIT!")
-                    Keyboard_App.destroy()
-                else:
-                    # Sound.mute()
-                    messagebox.showinfo("Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)  
+        elif value == "Tab":
+            entry.insert(tkinter.END, '     ')
+        elif value == "/":
+            if entry.get("1.0", 'end-1c') == correctNOTATION:
+                # Sound.mute()
+                messagebox.showinfo("Result", "CORRECT!")
+            elif entry.get("1.0", 'end-1c') == "e":
+                messagebox.showinfo("Bye", "You pressed EXIT!")
+                Keyboard_App.destroy()
             else:
-                entry.insert(tkinter.END, value)
-
+                # Sound.mute()
+                messagebox.showinfo(
+                    "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+        else:
+            entry.insert(tkinter.END, value)
 
 
 translate = random.choice(words)
 label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-"arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 
 # for adjusting location and size of text box
@@ -63,14 +64,15 @@ entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
 entry.grid(row=1, columnspan=40, pady=10)
 
 buttons = ['i', 'r', '|', '9',
-        'g', 'p', 'y', '7',
-        'f', 'o', 'x', '6',
-        'e', 'n', 'w', '5',
-        'd', 'm', 'v', '4',
-        'c', 'l', 'u', '3',
-        'b', 'k', 't', '2',
-        'a', 'j', 's', '1',
-        '0', '1', '2', '/']
+           'h', 'q', 'z', '8',
+           'g', 'p', 'y', '7',
+           'f', 'o', 'x', '6',
+           'e', 'n', 'w', '5',
+           'd', 'm', 'v', '4',
+           'c', 'l', 'u', '3',
+           'b', 'k', 't', '2',
+           'a', 'j', 's', '1',
+           '0', '1', '2', '/']
 
 varRow = 2
 varColumn = 0
@@ -181,12 +183,12 @@ for button in buttons:
     def command(x=button): select(x)
     if button != " / ":
         tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
             row=varRow, column=varColumn)
 
     if button == " / ":
         tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
             row=6, column=4)
 
     varColumn += 1
