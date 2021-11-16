@@ -145,10 +145,11 @@ def interpreter(SourceWord):
 
     # SourceWord = random.choice(words)
     # # correctNOTATION = interpreter(translate)
-    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
-        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
-    print(correctNOTATION + " " + SourceWord)
+    if entry.get("1.0", 'end-1c') == '/':
+        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
+            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+        print(correctNOTATION + " " + SourceWord)
     return correctNOTATION
 
 
@@ -160,8 +161,14 @@ def interpreter(SourceWord):
 
 
 def select(value):
+
     translate = random.choice(words)
+    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+
+    # problem: each time I click, this function is invoked
     correctNOTATION = interpreter(translate)
+
     # Keyboard_App.destroy()
     # if value == "Backspace":
     # if entry.insert(0, value):
@@ -181,8 +188,7 @@ def select(value):
             # Sound.mute()
             messagebox.showinfo("Result", "CORRECT!")
             # interpreter(translate)
-            label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-                "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
@@ -193,8 +199,8 @@ def select(value):
             # interpreter(translate)
             # translate = random.choice(words)
             # correctNOTATION = interpreter(translate)
-            label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-                "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+            # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+            #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
             # refresh(Keyboard_App)
     else:
         entry.insert(tkinter.END, value)
