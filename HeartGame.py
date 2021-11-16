@@ -54,9 +54,15 @@ varRow = 2
 varColumn = 0
 
 
-def select(value):
-
+def generateWord():
     translate = random.choice(words)
+    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    return translate
+
+def select(value):
+    generateWord()
+    # translate = random.choice(words)
     # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
     #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
@@ -112,19 +118,19 @@ def select(value):
 for button in buttons:
     translate = random.choice(words)
     def command(x=button): select(x)
-    if button != " / ":
-        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-        tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-            row=varRow, column=varColumn)
+    # if button != " / ":
+    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+        row=varRow, column=varColumn)
 
-    if button == " / ":
-        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-        tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-            row=6, column=4)
+    # if button == " / ":
+    #     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    #     tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
+    #                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+    #         row=6, column=4)
 
     varColumn += 1
     if varColumn > 3 and varRow == 2:
@@ -261,10 +267,10 @@ def interpreter(SourceWord):
     # SourceWord = random.choice(words)
     # # correctNOTATION = interpreter(translate)
 
-    if entry.get("1.0", 'end-1c') == "/":
-        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
-            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-        print(correctNOTATION + " " + SourceWord)
+    # if entry.get("1.0", 'end-1c') == "/":
+    #     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
+    #         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    #     print(correctNOTATION + " " + SourceWord)
     return correctNOTATION
 
 
