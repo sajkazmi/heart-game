@@ -15,6 +15,7 @@ import random
 # app = tk.Tk()
 # app.geometry("40x40")
 
+
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
 
@@ -26,7 +27,12 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("380x660")
 
 
-# def cycle_words():
+# def refresh(self):
+#     # self.destroy()
+#     self.__init__()
+
+translate = random.choice(words)
+
 
 def select(value):
     # Keyboard_App.destroy()
@@ -44,6 +50,9 @@ def select(value):
         if entry.get("1.0", 'end-1c') == correctNOTATION:
             # Sound.mute()
             messagebox.showinfo("Result", "CORRECT!")
+            translate = random.choice(words)
+            label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+                "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
@@ -51,13 +60,15 @@ def select(value):
             # Sound.mute()
             messagebox.showinfo(
                 "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+            translate = random.choice(words)
+            label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+                "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+            # refresh(Keyboard_App)
     else:
         entry.insert(tkinter.END, value)
 
 
-translate = random.choice(words)
-label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+# def cycle_words(seed):
 
 
 # for adjusting location and size of text box
@@ -179,7 +190,6 @@ def get_value():
 # if entry == correctNOTATION:
 #  print("Correct")
 
-
 for button in buttons:
     def command(x=button): select(x)
     if button != " / ":
@@ -220,4 +230,19 @@ for button in buttons:
     if varColumn > 3 and varRow == 10:
         varColumn = 0
         varRow += 1
+
+# while select("e") != "e":
+#     cycle_words(translate)
+
+
+# def label_reload():
+#     translate = random.choice(words)
+#     label1.config(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate)
+#     # upText = entry.get("1.0", 'end-1c')
+#     # label1.config(text=upText)
+#     # label1.after(400, label_reload)
+
+
+# label_reload()
+
 Keyboard_App.mainloop()
