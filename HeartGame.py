@@ -9,11 +9,6 @@ import tkinter
 import random
 
 
-#  from keyboard import Keyboard
-# from sound import Sound
-
-# app = tk.Tk()
-# app.geometry("40x40")
 
 
 with open("./wordlist.10000.txt") as word_file:
@@ -23,16 +18,7 @@ with open("./wordlist.10000.txt") as word_file:
 Keyboard_App = tkinter.Tk()
 Keyboard_App.title("Heart Game")
 Keyboard_App['bg'] = 'blue'
-# Keyboard_App.resizable(0, 0)
 Keyboard_App.geometry("380x660")
-
-
-# def refresh(self):
-#     # self.destroy()
-#     self.__init__()
-
-
-# def cycle_words(seed):
 
 
 # for adjusting location and size of text box
@@ -62,19 +48,8 @@ def generateWord():
 
 def select(value):
     generateWord()
-    # translate = random.choice(words)
-    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-
     # problem: each time I click, this function is invoked
     correctNOTATION = interpreter(translate)
-
-    # Keyboard_App.destroy()
-    # if value == "Backspace":
-    # if entry.insert(0, value):
-    # entry.delete(0, "end")
-    # if value == keyboard.is_pressed('q'):
-    # print('You pressed Exit!')
 
     if value == " Space ":
         entry.insert(tkinter.END, '   ')
@@ -82,12 +57,11 @@ def select(value):
     elif value == "Tab":
         entry.insert(tkinter.END, '     ')
     elif value == "/":
-        # translate = random.choice(words)
-        # correctNOTATION = interpreter(translate)
         if entry.get("1.0", 'end-1c') == correctNOTATION:
             # Sound.mute()
             messagebox.showinfo("Result", "CORRECT!")
             # interpreter(translate)
+            generateWord()
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
@@ -105,16 +79,6 @@ def select(value):
     else:
         entry.insert(tkinter.END, value)
 
-
-# def get_value():
-#     e_text = entry.get()
-#     if e_text == interpreter(translate):
-#         print("Correct")
-
-
-# if entry == correctNOTATION:
-#  print("Correct")
-
 for button in buttons:
     translate = random.choice(words)
     def command(x=button): select(x)
@@ -124,13 +88,6 @@ for button in buttons:
     tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
                     activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
-
-    # if button == " / ":
-    #     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-    #     tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
-    #                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-    #         row=6, column=4)
 
     varColumn += 1
     if varColumn > 3 and varRow == 2:
@@ -161,19 +118,6 @@ for button in buttons:
         varColumn = 0
         varRow += 1
 
-# while select("e") != "e":
-#     cycle_words(translate)
-
-
-# def label_reload():
-#     translate = random.choice(words)
-#     label1.config(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate)
-#     # upText = entry.get("1.0", 'end-1c')
-#     # label1.config(text=upText)
-#     # label1.after(400, label_reload)
-
-
-# label_reload()
 
 def interpreter(SourceWord):
     correctNotationInitial = SourceWord[0]
@@ -263,22 +207,6 @@ def interpreter(SourceWord):
         ANE = "i"
 
     correctNOTATION = BoxFirst+BoxSecond+ANE+length
-
-    # SourceWord = random.choice(words)
-    # # correctNOTATION = interpreter(translate)
-
-    # if entry.get("1.0", 'end-1c') == "/":
-    #     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
-    #         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-    #     print(correctNOTATION + " " + SourceWord)
     return correctNOTATION
-
-
-# translate = random.choice(words)
-# # correctNOTATION = interpreter(translate)
-# label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-#     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-# interpreter(translate)
-
 
 Keyboard_App.mainloop()
