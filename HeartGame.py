@@ -54,6 +54,121 @@ varRow = 2
 varColumn = 0
 
 
+def select(value):
+
+    translate = random.choice(words)
+    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+
+    # problem: each time I click, this function is invoked
+    correctNOTATION = interpreter(translate)
+
+    # Keyboard_App.destroy()
+    # if value == "Backspace":
+    # if entry.insert(0, value):
+    # entry.delete(0, "end")
+    # if value == keyboard.is_pressed('q'):
+    # print('You pressed Exit!')
+
+    if value == " Space ":
+        entry.insert(tkinter.END, '   ')
+
+    elif value == "Tab":
+        entry.insert(tkinter.END, '     ')
+    elif value == "/":
+        # translate = random.choice(words)
+        # correctNOTATION = interpreter(translate)
+        if entry.get("1.0", 'end-1c') == correctNOTATION:
+            # Sound.mute()
+            messagebox.showinfo("Result", "CORRECT!")
+            # interpreter(translate)
+
+        elif entry.get("1.0", 'end-1c') == "e":
+            messagebox.showinfo("Bye", "You pressed EXIT!")
+            Keyboard_App.destroy()
+        else:
+            # Sound.mute()
+            messagebox.showinfo(
+                "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+            # interpreter(translate)
+            # translate = random.choice(words)
+            # correctNOTATION = interpreter(translate)
+            # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+            #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+            # refresh(Keyboard_App)
+    else:
+        entry.insert(tkinter.END, value)
+
+
+# def get_value():
+#     e_text = entry.get()
+#     if e_text == interpreter(translate):
+#         print("Correct")
+
+
+# if entry == correctNOTATION:
+#  print("Correct")
+
+for button in buttons:
+    translate = random.choice(words)
+    def command(x=button): select(x)
+    if button != " / ":
+        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+        tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+            row=varRow, column=varColumn)
+
+    if button == " / ":
+        label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+            "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+        tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+            row=6, column=4)
+
+    varColumn += 1
+    if varColumn > 3 and varRow == 2:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 3:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 4:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 5:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 6:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 7:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 8:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 9:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 10:
+        varColumn = 0
+        varRow += 1
+
+# while select("e") != "e":
+#     cycle_words(translate)
+
+
+# def label_reload():
+#     translate = random.choice(words)
+#     label1.config(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate)
+#     # upText = entry.get("1.0", 'end-1c')
+#     # label1.config(text=upText)
+#     # label1.after(400, label_reload)
+
+
+# label_reload()
+
 def interpreter(SourceWord):
     correctNotationInitial = SourceWord[0]
 
@@ -146,7 +261,7 @@ def interpreter(SourceWord):
     # SourceWord = random.choice(words)
     # # correctNOTATION = interpreter(translate)
 
-    if entry.get("1.0", 'end-1c') == '/':
+    if entry.get("1.0", 'end-1c') == "/":
         label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceWord, font=(
             "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
         print(correctNOTATION + " " + SourceWord)
@@ -159,115 +274,5 @@ def interpreter(SourceWord):
 #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 # interpreter(translate)
 
-
-def select(value):
-
-    translate = random.choice(words)
-    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-
-    # problem: each time I click, this function is invoked
-    correctNOTATION = interpreter(translate)
-
-    # Keyboard_App.destroy()
-    # if value == "Backspace":
-    # if entry.insert(0, value):
-    # entry.delete(0, "end")
-    # if value == keyboard.is_pressed('q'):
-    # print('You pressed Exit!')
-
-    if value == " Space ":
-        entry.insert(tkinter.END, '   ')
-
-    elif value == "Tab":
-        entry.insert(tkinter.END, '     ')
-    elif value == "/":
-        # translate = random.choice(words)
-        # correctNOTATION = interpreter(translate)
-        if entry.get("1.0", 'end-1c') == correctNOTATION:
-            # Sound.mute()
-            messagebox.showinfo("Result", "CORRECT!")
-            # interpreter(translate)
-
-        elif entry.get("1.0", 'end-1c') == "e":
-            messagebox.showinfo("Bye", "You pressed EXIT!")
-            Keyboard_App.destroy()
-        else:
-            # Sound.mute()
-            messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
-            # interpreter(translate)
-            # translate = random.choice(words)
-            # correctNOTATION = interpreter(translate)
-            # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-            #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-            # refresh(Keyboard_App)
-    else:
-        entry.insert(tkinter.END, value)
-
-
-# def get_value():
-#     e_text = entry.get()
-#     if e_text == interpreter(translate):
-#         print("Correct")
-
-
-# if entry == correctNOTATION:
-#  print("Correct")
-
-for button in buttons:
-    def command(x=button): select(x)
-    if button != " / ":
-        tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-            row=varRow, column=varColumn)
-
-    if button == " / ":
-        tkinter.Button(Keyboard_App, text=button, width=118, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-            row=6, column=4)
-
-    varColumn += 1
-    if varColumn > 3 and varRow == 2:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 3:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 4:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 5:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 6:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 7:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 8:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 9:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 10:
-        varColumn = 0
-        varRow += 1
-
-# while select("e") != "e":
-#     cycle_words(translate)
-
-
-# def label_reload():
-#     translate = random.choice(words)
-#     label1.config(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate)
-#     # upText = entry.get("1.0", 'end-1c')
-#     # label1.config(text=upText)
-#     # label1.after(400, label_reload)
-
-
-# label_reload()
 
 Keyboard_App.mainloop()
