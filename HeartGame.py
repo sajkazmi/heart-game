@@ -26,32 +26,33 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("380x660")
 
 
-for word in words:
-    def select(value):
-        # Keyboard_App.destroy()
-        # if value == "Backspace":
-        # if entry.insert(0, value):
-        # entry.delete(0, "end")
-        # if value == keyboard.is_pressed('q'):
-        # print('You pressed Exit!')
-        if value == " Space ":
-            entry.insert(tkinter.END, '   ')
+# def cycle_words():
 
-        elif value == "Tab":
-            entry.insert(tkinter.END, '     ')
-        elif value == "/":
-            if entry.get("1.0", 'end-1c') == correctNOTATION:
-                # Sound.mute()
-                messagebox.showinfo("Result", "CORRECT!")
-            elif entry.get("1.0", 'end-1c') == "e":
-                messagebox.showinfo("Bye", "You pressed EXIT!")
-                Keyboard_App.destroy()
-            else:
-                # Sound.mute()
-                messagebox.showinfo(
-                    "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+def select(value):
+    # Keyboard_App.destroy()
+    # if value == "Backspace":
+    # if entry.insert(0, value):
+    # entry.delete(0, "end")
+    # if value == keyboard.is_pressed('q'):
+    # print('You pressed Exit!')
+    if value == " Space ":
+        entry.insert(tkinter.END, '   ')
+
+    elif value == "Tab":
+        entry.insert(tkinter.END, '     ')
+    elif value == "/":
+        if entry.get("1.0", 'end-1c') == correctNOTATION:
+            # Sound.mute()
+            messagebox.showinfo("Result", "CORRECT!")
+        elif entry.get("1.0", 'end-1c') == "e":
+            messagebox.showinfo("Bye", "You pressed EXIT!")
+            Keyboard_App.destroy()
         else:
-            entry.insert(tkinter.END, value)
+            # Sound.mute()
+            messagebox.showinfo(
+                "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+    else:
+        entry.insert(tkinter.END, value)
 
 
 translate = random.choice(words)
