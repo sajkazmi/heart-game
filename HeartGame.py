@@ -42,14 +42,14 @@ varColumn = 0
 
 def generateWord():
     translate = random.choice(words)
-    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
     return translate
 
 def select(value):
-    generateWord()
+    
     # problem: each time I click, this function is invoked
-    correctNOTATION = interpreter(translate)
+    correctNOTATION = interpreter(generateWord())
 
     if value == " Space ":
         entry.insert(tkinter.END, '   ')
@@ -58,33 +58,25 @@ def select(value):
         entry.insert(tkinter.END, '     ')
     elif value == "/":
         if entry.get("1.0", 'end-1c') == correctNOTATION:
-            # Sound.mute()
             messagebox.showinfo("Result", "CORRECT!")
-            # interpreter(translate)
             generateWord()
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
         else:
-            # Sound.mute()
             messagebox.showinfo(
                 "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
-            # interpreter(translate)
-            # translate = random.choice(words)
-            # correctNOTATION = interpreter(translate)
-            # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-            #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-            # refresh(Keyboard_App)
     else:
         entry.insert(tkinter.END, value)
 
 for button in buttons:
-    translate = random.choice(words)
+    generateWord()
+    # translate = random.choice(words)
+    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+
     def command(x=button): select(x)
-    # if button != " / ":
-    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
     tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
                     activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
