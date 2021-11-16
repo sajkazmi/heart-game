@@ -46,18 +46,20 @@ def generateWord():
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
     return translate
 
+
 def select(value):
     
     # problem: each time I click, this function is invoked
-    correctNOTATION = interpreter(generateWord())
+    # correctNOTATION = interpreter(generateWord())
 
-    if value == " Space ":
-        entry.insert(tkinter.END, '   ')
+    # if value == " Space ":
+    #     entry.insert(tkinter.END, '   ')
 
-    elif value == "Tab":
-        entry.insert(tkinter.END, '     ')
-    elif value == "/":
-        if entry.get("1.0", 'end-1c') == correctNOTATION:
+    # elif value == "Tab":
+    #     entry.insert(tkinter.END, '     ')
+    if value == "/":
+        answer = interpreter(generateWord())
+        if entry.get("1.0", 'end-1c') == answer:
             messagebox.showinfo("Result", "CORRECT!")
             generateWord()
 
@@ -66,7 +68,7 @@ def select(value):
             Keyboard_App.destroy()
         else:
             messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + correctNOTATION)
+                "Result", "Incorrect; the Correct answer is:\n                   " + answer)
     else:
         entry.insert(tkinter.END, value)
 
@@ -75,7 +77,7 @@ for button in buttons:
     # translate = random.choice(words)
     # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
     #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-
+    
     def command(x=button): select(x)
     tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
                     activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
