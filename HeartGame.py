@@ -9,8 +9,6 @@ import tkinter
 import random
 
 
-
-
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
 
@@ -45,15 +43,24 @@ def generateWord():
     return translate
 
 
-def displayTablet(SourceText):    
+def displayTablet(SourceText):
     # Following is source of word disappearing bug:
     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceText, font=(
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-    
+
+
+ToTranslate = generateWord()
+
+
+def redeploy():
+    # ToTranslate = generateWord()
+    displayTablet(ToTranslate)
+    answer = interpreter(ToTranslate)
+    return answer
 
 
 def select(value):
-    
+
     # problem: each time I click, this function is invoked
     # correctNOTATION = interpreter(generateWord())
 
@@ -63,20 +70,24 @@ def select(value):
     # elif value == "Tab":
     #     entry.insert(tkinter.END, '     ')
     if value == "/":
-        # answer = interpreter(generateWord())
-        if entry.get("1.0", 'end-1c') == answer:
+        ans = redeploy()
+        if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
-            generateWord()
-            displayTablet(generateWord())
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
         else:
             messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + answer)
+                "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+
+        # answer = interpreter(generateWord())
+        # generateWord()
+        # displayTablet(ToTranslate)
+        # ans = redeploy()
     else:
         entry.insert(tkinter.END, value)
+
 
 def interpreter(SourceWord):
     correctNotationInitial = SourceWord[0]
@@ -168,17 +179,20 @@ def interpreter(SourceWord):
     correctNOTATION = BoxFirst+BoxSecond+ANE+length
     return correctNOTATION
 
+
 for button in buttons:
-    ToTranslate = generateWord()
-    displayTablet(ToTranslate)
-    answer = interpreter(ToTranslate)
+    redeploy()
+    # ToTranslate = generateWord()
+    # displayTablet(ToTranslate)
+    # answer = interpreter(ToTranslate)
+
     # translate = random.choice(words)
     # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
     #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-    
+
     def command(x=button): select(x)
     tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+                   activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
 
     varColumn += 1
@@ -209,8 +223,6 @@ for button in buttons:
     if varColumn > 3 and varRow == 10:
         varColumn = 0
         varRow += 1
-
-
 
 
 Keyboard_App.mainloop()
