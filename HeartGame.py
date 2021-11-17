@@ -49,6 +49,7 @@ def displayTablet(SourceText):
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 
+global ToTranslate
 ToTranslate = generateWord()
 
 
@@ -60,7 +61,6 @@ def redeploy():
 
 
 def select(value):
-
     # problem: each time I click, this function is invoked
     # correctNOTATION = interpreter(generateWord())
 
@@ -73,10 +73,12 @@ def select(value):
         ans = redeploy()
         if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
+            displayTablet(generateWord())
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
+
         else:
             messagebox.showinfo(
                 "Result", "Incorrect; the Correct answer is:\n                   " + ans)
