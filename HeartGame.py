@@ -42,9 +42,14 @@ varColumn = 0
 
 def generateWord():
     translate = random.choice(words)
-    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
     return translate
+
+
+def displayTablet(SourceText):    
+    # Following is source of word disappearing bug:
+    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+SourceText, font=(
+        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    
 
 
 def select(value):
@@ -58,10 +63,11 @@ def select(value):
     # elif value == "Tab":
     #     entry.insert(tkinter.END, '     ')
     if value == "/":
-        answer = interpreter(generateWord())
+        # answer = interpreter(generateWord())
         if entry.get("1.0", 'end-1c') == answer:
             messagebox.showinfo("Result", "CORRECT!")
             generateWord()
+            displayTablet(generateWord())
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
@@ -71,47 +77,6 @@ def select(value):
                 "Result", "Incorrect; the Correct answer is:\n                   " + answer)
     else:
         entry.insert(tkinter.END, value)
-
-for button in buttons:
-    generateWord()
-    # translate = random.choice(words)
-    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-    
-    def command(x=button): select(x)
-    tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-        row=varRow, column=varColumn)
-
-    varColumn += 1
-    if varColumn > 3 and varRow == 2:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 3:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 4:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 5:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 6:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 7:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 8:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 9:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 10:
-        varColumn = 0
-        varRow += 1
-
 
 def interpreter(SourceWord):
     correctNotationInitial = SourceWord[0]
@@ -202,5 +167,50 @@ def interpreter(SourceWord):
 
     correctNOTATION = BoxFirst+BoxSecond+ANE+length
     return correctNOTATION
+
+for button in buttons:
+    ToTranslate = generateWord()
+    displayTablet(ToTranslate)
+    answer = interpreter(ToTranslate)
+    # translate = random.choice(words)
+    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
+    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
+    
+    def command(x=button): select(x)
+    tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+        row=varRow, column=varColumn)
+
+    varColumn += 1
+    if varColumn > 3 and varRow == 2:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 3:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 4:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 5:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 6:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 7:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 8:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 9:
+        varColumn = 0
+        varRow += 1
+    if varColumn > 3 and varRow == 10:
+        varColumn = 0
+        varRow += 1
+
+
+
 
 Keyboard_App.mainloop()
