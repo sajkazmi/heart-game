@@ -16,7 +16,7 @@ with open("./wordlist.10000.txt") as word_file:
 Keyboard_App = tkinter.Tk()
 Keyboard_App.title("Heart Game")
 Keyboard_App['bg'] = 'blue'
-Keyboard_App.geometry("380x660")
+Keyboard_App.geometry("415x705")
 
 
 # for adjusting location and size of text box
@@ -193,7 +193,7 @@ for button in buttons:
     #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
     def command(x=button): select(x)
-    tkinter.Button(Keyboard_App, text=button, width=5, bd=12, font=('arial', 12, ' bold'), bg='blue',
+    tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
 
