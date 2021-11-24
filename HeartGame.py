@@ -2,6 +2,7 @@
 # "How to Create a GUI Onscreen Keyboard in Python - Tutorial"
 
 # To solve the cycling problem, you need to look at the incorrect statement as ans should not be same for both correct and incorrect, USE DIFFERENT ARRAY VALUES.
+# To fix GUI alignment, just de indent.
 
 import tkinter as tk
 from functools import partial
@@ -55,7 +56,8 @@ def displayTablet(SourceText):
 # count = 0
 # while entry.get("1.0", 'end-1c') != "e":
 for count in range(3):
-    ToTranslate = [generateWord()[count]]
+    ToTranslate = (generateWord()[count])
+    
     # ToTranslate = arr.array('u', generateWord()[count])
     
 
