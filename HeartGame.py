@@ -51,8 +51,9 @@ def displayTablet(SourceText):
 
 
 # global ToTranslate
+ToTranslate = arr
 count = 0
-while entry.get("1.0", 'end-1c') != "e"
+while entry.get("1.0", 'end-1c') != "e":
     ToTranslate[count] = arr.array('u', generateWord())
     count = count + 1
 
