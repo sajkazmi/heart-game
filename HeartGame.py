@@ -7,6 +7,7 @@ from tkinter import messagebox
 from tkinter import*
 import tkinter
 import random
+import array as arr
 
 
 with open("./wordlist.10000.txt") as word_file:
@@ -49,11 +50,14 @@ def displayTablet(SourceText):
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 
-global ToTranslate
-ToTranslate = generateWord()
+# global ToTranslate
+count = 0
+while entry.get("1.0", 'end-1c') != "e"
+    ToTranslate[count] = arr.array('u', generateWord())
+    count = count + 1
 
 
-def redeploy():
+def redeploy(ToTranslate):
     # ToTranslate = generateWord()
     displayTablet(ToTranslate)
     answer = interpreter(ToTranslate)
@@ -70,7 +74,7 @@ def select(value):
     # elif value == "Tab":
     #     entry.insert(tkinter.END, '     ')
     if value == "/":
-        ans = redeploy()
+        ans = redeploy(ToTranslate)
         if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
             displayTablet(generateWord())
@@ -183,7 +187,7 @@ def interpreter(SourceWord):
 
 
 for button in buttons:
-    redeploy()
+    redeploy(ToTranslate)
     # ToTranslate = generateWord()
     # displayTablet(ToTranslate)
     # answer = interpreter(ToTranslate)
