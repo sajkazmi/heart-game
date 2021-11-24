@@ -1,8 +1,13 @@
 # Thank you to DJ Oamen (https://youtu.be/3PXfTTcLXqA) for his demonstration titled
+
 # "How to Create a GUI Onscreen Keyboard in Python - Tutorial"
 
 # To solve the cycling problem, you need to look at the incorrect statement as ans should not be same for both correct and incorrect, USE DIFFERENT ARRAY VALUES.
+
 # To fix GUI alignment, just de indent.
+#string index error is being caused by you accessing word characterd instead of different words, through arrayfication. May need numPy.
+
+
 
 import tkinter as tk
 from functools import partial
@@ -11,7 +16,7 @@ from tkinter import*
 import tkinter
 import random
 import array as arr
-
+import numpy as np
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -55,10 +60,12 @@ def displayTablet(SourceText):
 # global ToTranslate
 # count = 0
 # while entry.get("1.0", 'end-1c') != "e":
-for count in range(3):
+for count in range(10):
     ToTranslate = (generateWord()[count])
-    
-    # ToTranslate = arr.array('u', generateWord()[count])
+    print ("ToTranslate: "), ToTranslate
+    ToTranslateAFTER = (generateWord()[count-1])
+    print ("ToTranslateAFTER: "), ToTranslateAFTER
+   # ToTranslate = arr.array('u', generateWord()[count])
     
 
 
@@ -80,6 +87,7 @@ for count in range(3):
         #     entry.insert(tkinter.END, '     ')
         if value == "/":
             ans = redeploy(ToTranslate)
+            ansAFTER = redeploy(ToTranslateAFTER)
             if entry.get("1.0", 'end-1c') == ans:
                 messagebox.showinfo("Result", "CORRECT!")
                 displayTablet(generateWord())
@@ -90,7 +98,7 @@ for count in range(3):
 
             else:
                 messagebox.showinfo(
-                    "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+                    "Result", "Incorrect; the Correct answer is:\n                   " + ansAFTER)
 
             # answer = interpreter(generateWord())
             # generateWord()
