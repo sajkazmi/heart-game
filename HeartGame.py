@@ -17,7 +17,7 @@ from tkinter import*
 import tkinter
 import random
 import array as arr
-import numpy as np
+# import numPy as np
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -48,9 +48,12 @@ varRow = 2
 varColumn = 0
 
 
-def generateWord():
+
+k = 0
+def generateWord(k):
     translate = random.choice(words)
-    return translate
+    k = k + 1
+    return translate[k]
 
 
 def displayTablet(SourceText):
@@ -62,10 +65,10 @@ def displayTablet(SourceText):
 # global ToTranslate
 # count = 0
 # while entry.get("1.0", 'end-1c') != "e":
-for count in range(10):
-    ToTranslate = (generateWord()[count])
+for count in range(5):
+    ToTranslate = generateWord(count)
     print("ToTranslate: "), ToTranslate
-    ToTranslateAFTER = (generateWord()[count-1])
+    ToTranslateAFTER = generateWord(count - 1)
     print("ToTranslateAFTER: "), ToTranslateAFTER
    # ToTranslate = arr.array('u', generateWord()[count])
 
