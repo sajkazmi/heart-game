@@ -95,7 +95,7 @@ def select(value):
         ansAFTER = redeploy(ToTranslateAFTER)
         if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
-            displayTablet(generateWord())
+            displayTablet(ToTranslateAFTER)
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
