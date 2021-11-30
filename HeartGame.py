@@ -68,7 +68,7 @@ def generateWord(c):
 for count in range(5):
     ToTranslate = generateWord(count)
     print("ToTranslate: "), ToTranslate
-    ToTranslateAFTER = generateWord(count - 1)
+    ToTranslateAFTER = generateWord(count + 1)
     print("ToTranslateAFTER: "), ToTranslate
 
    # ToTranslate = arr.array('u', generateWord()[count])
@@ -93,13 +93,18 @@ def select(value):
     if value == "/":
         ans = redeploy(ToTranslate)
         ansAFTER = redeploy(ToTranslateAFTER)
-        if entry.get("1.0", 'end-1c') == ans:
+        if entry.get("1.0", 'end-1c') == ans or entry.get("1.0", 'end-1c') == ansAFTER and ToTranslate != ToTranslateAFTER:
             messagebox.showinfo("Result", "CORRECT!")
+            # redeploy(random.choice(words))
+            # # entry.delete("1.0", END)
             displayTablet(ToTranslateAFTER)
 
         elif entry.get("1.0", 'end-1c') == "e":
             messagebox.showinfo("Bye", "You pressed EXIT!")
             Keyboard_App.destroy()
+
+        elif ToTranslate == ToTranslateAFTER:
+            messagebox.showinfo("Duplicate, you will have to restart the game")
 
         else:
             messagebox.showinfo(
