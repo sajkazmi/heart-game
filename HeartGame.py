@@ -20,7 +20,7 @@ import array as arr
 import lists as translate
 import lists as ToTranslate
 from lists import*
-# import numPy as np
+
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -52,7 +52,7 @@ varColumn = 0
 
 
 def displayTablet(SourceText):
-    # Following is source of word disappearing bug:
+    # Following was source of word disappearing bug:
     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+str(SourceText), font=(
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
@@ -60,9 +60,6 @@ def displayTablet(SourceText):
 def generateWord(c):
     translate = random.choice(words)
     return translate
-# global ToTranslate
-# count = 0
-# while entry.get("1.0", 'end-1c') != "e":
 
 
 for count in range(5):
@@ -70,8 +67,6 @@ for count in range(5):
     print("ToTranslate: "), ToTranslate
     ToTranslateAFTER = generateWord(count + 1)
     print("ToTranslateAFTER: "), ToTranslate
-
-   # ToTranslate = arr.array('u', generateWord()[count])
 
 
 def redeploy(ToTrans):
@@ -82,14 +77,8 @@ def redeploy(ToTrans):
 
 
 def select(value):
-    # problem: each time I click, this function is invoked
-    # correctNOTATION = interpreter(generateWord())
+    # each time I click, this function is invoked
 
-    # if value == " Space ":
-    #     entry.insert(tkinter.END, '   ')
-
-    # elif value == "Tab":
-    #     entry.insert(tkinter.END, '     ')
     if value == "/":
         ans = redeploy(ToTranslate)
         ansAFTER = redeploy(ToTranslateAFTER)
@@ -110,10 +99,6 @@ def select(value):
             messagebox.showinfo(
                 "Result", "Incorrect; the Correct answer is:\n                   " + ansAFTER)
 
-        # answer = interpreter(generateWord())
-        # generateWord()
-        # displayTablet(ToTranslate)
-        # ans = redeploy()
     else:
         entry.insert(tkinter.END, value)
 
@@ -211,13 +196,6 @@ def interpreter(SourceWord):
 
 for button in buttons:
     redeploy(ToTranslate)
-    # ToTranslate = generateWord()
-    # displayTablet(ToTranslate)
-    # answer = interpreter(ToTranslate)
-
-    # translate = random.choice(words)
-    # label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+translate, font=(
-    #     "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
     def command(x=button): select(x)
     tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
@@ -252,8 +230,6 @@ for button in buttons:
     if varColumn > 3 and varRow == 10:
         varColumn = 0
         varRow += 1
-
-# count = count + 1
 
 
 Keyboard_App.mainloop()
