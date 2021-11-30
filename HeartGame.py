@@ -17,6 +17,9 @@ from tkinter import*
 import tkinter
 import random
 import array as arr
+import lists as translate
+import lists as ToTranslate
+from lists import*
 # import numPy as np
 
 with open("./wordlist.10000.txt") as word_file:
@@ -48,35 +51,33 @@ varRow = 2
 varColumn = 0
 
 
-
-k = 0
-def generateWord(k):
-    translate = random.choice(words)
-    k = k + 1
-    return translate[k]
-
-
 def displayTablet(SourceText):
     # Following is source of word disappearing bug:
     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+str(SourceText), font=(
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 
+def generateWord(c):
+    translate = random.choice(words)
+    return translate
 # global ToTranslate
 # count = 0
 # while entry.get("1.0", 'end-1c') != "e":
+
+
 for count in range(5):
     ToTranslate = generateWord(count)
     print("ToTranslate: "), ToTranslate
     ToTranslateAFTER = generateWord(count - 1)
-    print("ToTranslateAFTER: "), ToTranslateAFTER
+    print("ToTranslateAFTER: "), ToTranslate
+
    # ToTranslate = arr.array('u', generateWord()[count])
 
 
-def redeploy(ToTranslate):
+def redeploy(ToTrans):
     # ToTranslate = generateWord()
-    displayTablet(ToTranslate)
-    answer = interpreter(ToTranslate)
+    displayTablet(ToTrans)
+    answer = interpreter(ToTrans)
     return answer
 
 
