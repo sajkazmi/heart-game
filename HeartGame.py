@@ -9,6 +9,7 @@
 
 # python\python310\site-packages is Windows location for Python and numpy. I have to add the path to this on Termux to install numpy.
 
+# There is no need for ToTranslateAFTER or ansAFTER, just use the arrayfication of ToTranslate.
 
 import tkinter as tk
 from functools import partial
@@ -94,7 +95,7 @@ def select(value):
     if value == "/":
         ans = redeploy(ToTranslate)
         ansAFTER = redeploy(ToTranslateAFTER)
-        if (entry.get("1.0", 'end-1c') == ans) or (entry.get("1.0", 'end-1c') == ansAFTER and ToTranslate != ToTranslateAFTER):
+        if (entry.get("1.0", 'end-1c') == ans) or (entry.get("1.0", 'end-1c') == ansAFTER and ans != ansAFTER):
             messagebox.showinfo("Result", "CORRECT!")
             # redeploy(random.choice(words))
             # # entry.delete("1.0", END)
