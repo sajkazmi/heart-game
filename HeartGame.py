@@ -22,9 +22,10 @@ import numpy as np
 # from lists import*
 # from array import *
 
-
-ToTranslate = np.array([], dtype=object)
-ToTranslateAFTER = np.array([], dtype=object)
+# ToTranslate = np.array_str([].strip('[]'))
+# ToTranslateAFTER = np.array_str([].strip('[]'))
+ToTranslate = np.array([], dtype=str)
+ToTranslateAFTER = np.array([], dtype=str)
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -55,12 +56,6 @@ varRow = 2
 varColumn = 0
 
 
-def displayTablet(SourceText):
-    # Following was source of word disappearing bug:
-    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+str(SourceText), font=(
-        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
-
-
 def generateWord(c):
     translate = random.choice(words)
     return translate
@@ -68,13 +63,21 @@ def generateWord(c):
 
 # for count in range(5):
 count = 0
-ToTranslate = np.append(ToTranslate, generateWord(count))
-print(ToTranslate)
-ToTranslateAFTER = np.append(ToTranslateAFTER, generateWord(count+1))
-print(ToTranslateAFTER)
-# ToTranslateAFTER = ToTranslateAFTER.append(generateWord(count+1))
-# b = generateWord(count + 1)
-# ToTranslateAFTER.append(b)
+# ToTranslate = np.
+ToTranslate = np.append(ToTranslate, generateWord(count).strip('[]'))
+ToTranslateAFTER = np.append(
+    ToTranslateAFTER, generateWord(count + 1).strip('[]'))
+
+# ToTranslate = np.append(ToTranslate, generateWord(count))
+# print(ToTranslate)
+# ToTranslateAFTER = np.append(ToTranslateAFTER, generateWord(count+1))
+# print(ToTranslateAFTER)
+
+
+def displayTablet(SourceText):
+    # Following was source of word disappearing bug:
+    label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+str(SourceText), font=(
+        "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
 
 
 def redeploy(ToTrans):
@@ -179,6 +182,7 @@ def interpreter(SourceWord):
     BoxFirst = Box[0]
     BoxSecond = Box[1]
     length = str(len(SourceWord))
+    print(length)
 
     # Root letters
     if BoxSecond == "1":
@@ -204,8 +208,9 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
+redeploy(ToTranslate)
 for button in buttons:
-    redeploy(ToTranslate)
+    # redeploy(ToTranslate)
 
     def command(x=button): select(x)
     tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
