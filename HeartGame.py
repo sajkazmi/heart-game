@@ -24,8 +24,7 @@ import numpy as np
 
 # ToTranslate = np.array_str([].strip('[]'))
 # ToTranslateAFTER = np.array_str([].strip('[]'))
-ToTranslate = np.array([], dtype=str)
-ToTranslateAFTER = np.array([], dtype=str)
+
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -63,10 +62,12 @@ def generateWord(c):
 
 # for count in range(5):
 count = 0
+ToTranslate = np.str_(generateWord(count))
+ToTranslateAFTER = np.str_(generateWord(count+1))
 # ToTranslate = np.
-ToTranslate = np.append(ToTranslate, generateWord(count).strip('[]'))
-ToTranslateAFTER = np.append(
-    ToTranslateAFTER, generateWord(count + 1).strip('[]'))
+# ToTranslate = np.append(ToTranslate, generateWord(count).strip('[]'))
+# ToTranslateAFTER = np.append(
+#     ToTranslateAFTER, generateWord(count + 1).strip('[]'))
 
 # ToTranslate = np.append(ToTranslate, generateWord(count))
 # print(ToTranslate)
