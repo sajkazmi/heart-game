@@ -94,7 +94,7 @@ def select(value):
     if value == "/":
         ans = redeploy(ToTranslate)
         ansAFTER = redeploy(ToTranslateAFTER)
-        if entry.get("1.0", 'end-1c') == ans:
+        if (entry.get("1.0", 'end-1c') == ans) or (entry.get("1.0", 'end-1c') == ansAFTER and ToTranslate != ToTranslateAFTER):
             messagebox.showinfo("Result", "CORRECT!")
             # redeploy(random.choice(words))
             # # entry.delete("1.0", END)
