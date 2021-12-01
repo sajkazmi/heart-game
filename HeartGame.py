@@ -16,11 +16,15 @@ from tkinter import messagebox
 from tkinter import*
 import tkinter
 import random
-import array as arr
-import lists as translate
-import lists as ToTranslate
-from lists import*
+import numpy as np
+# import lists as translate
+# import lists as ToTranslate
+# from lists import*
+# from array import *
 
+
+ToTranslate = np.array([], dtype=object)
+ToTranslateAFTER = np.array([], dtype=object)
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -62,11 +66,15 @@ def generateWord(c):
     return translate
 
 
-for count in range(5):
-    ToTranslate = generateWord(count)
-    print("ToTranslate: "), ToTranslate
-    ToTranslateAFTER = generateWord(count + 1)
-    print("ToTranslateAFTER: "), ToTranslate
+# for count in range(5):
+count = 0
+ToTranslate = np.append(ToTranslate, generateWord(count))
+print(ToTranslate)
+ToTranslateAFTER = np.append(ToTranslateAFTER, generateWord(count+1))
+print(ToTranslateAFTER)
+# ToTranslateAFTER = ToTranslateAFTER.append(generateWord(count+1))
+# b = generateWord(count + 1)
+# ToTranslateAFTER.append(b)
 
 
 def redeploy(ToTrans):
@@ -82,7 +90,7 @@ def select(value):
     if value == "/":
         ans = redeploy(ToTranslate)
         ansAFTER = redeploy(ToTranslateAFTER)
-        if entry.get("1.0", 'end-1c') == ans or entry.get("1.0", 'end-1c') == ansAFTER and ToTranslate != ToTranslateAFTER:
+        if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
             # redeploy(random.choice(words))
             # # entry.delete("1.0", END)
@@ -165,6 +173,8 @@ def interpreter(SourceWord):
         Box = "27"
     elif correctNotationInitial == 'z':
         Box = "28"
+    else:
+        Box = "29"
 
     BoxFirst = Box[0]
     BoxSecond = Box[1]
