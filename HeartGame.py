@@ -11,6 +11,8 @@
 
 # There is no need for ToTranslateAFTER or ansAFTER, just use the arrayfication of ToTranslate.
 
+# solution value suggests ans is not correct.
+
 import tkinter as tk
 from functools import partial
 from tkinter import messagebox
@@ -62,18 +64,13 @@ def generateWord(c):
 
 
 # for count in range(5):
-count = 0
-ToTranslate = np.str_(generateWord(count))
-ToTranslateAFTER = np.str_(generateWord(count+1))
-# ToTranslate = np.
-# ToTranslate = np.append(ToTranslate, generateWord(count).strip('[]'))
-# ToTranslateAFTER = np.append(
-#     ToTranslateAFTER, generateWord(count + 1).strip('[]'))
+counter = 0
 
-# ToTranslate = np.append(ToTranslate, generateWord(count))
-# print(ToTranslate)
-# ToTranslateAFTER = np.append(ToTranslateAFTER, generateWord(count+1))
-# print(ToTranslateAFTER)
+
+def iterToTrans(counter):
+    ToTranslate = np.str_(generateWord(counter))
+    # displayTablet(ToTranslate)
+    return ToTranslate
 
 
 def displayTablet(SourceText):
@@ -84,36 +81,51 @@ def displayTablet(SourceText):
 
 def redeploy(ToTrans):
     # ToTranslate = generateWord()
-    displayTablet(ToTrans)
+    # displayTablet(ToTrans)
     answer = interpreter(ToTrans)
     return answer
 
 
-def select(value):
-    # each time I click, this function is invoked
+# def store(solution, m):
+#     print("solution: ", solution)
+#     memory = [] * 10
+#     # memory[m] = solution
+#     memory[m] = solution
+#     print("memory: ", memory[m])
+#     return memory[m]
 
-    if value == "/":
-        ans = redeploy(ToTranslate)
-        ansAFTER = redeploy(ToTranslateAFTER)
-        if (entry.get("1.0", 'end-1c') == ans) or (entry.get("1.0", 'end-1c') == ansAFTER and ans != ansAFTER):
-            messagebox.showinfo("Result", "CORRECT!")
-            # redeploy(random.choice(words))
-            # # entry.delete("1.0", END)
-            displayTablet(ToTranslateAFTER)
 
-        elif entry.get("1.0", 'end-1c') == "e":
-            messagebox.showinfo("Bye", "You pressed EXIT!")
-            Keyboard_App.destroy()
+for k in range(5):
+    def select(value):
+        # each time I click, this function is invoked
 
-        elif ToTranslate == ToTranslateAFTER:
-            messagebox.showinfo("Duplicate, you will have to restart the game")
+        if value == "/":
+            ToTranslat = iterToTrans(k)
+            displayTablet(ToTranslat)
+            ans = redeploy(ToTranslat)
+            print("ans: ", ans)
+            # ans = interpreter(iterToTrans(k))
+            # redeploy(iterToTrans(k))
+            ansAFTER = redeploy(iterToTrans(k+1))
+            # print(store(ans, k))
+            if (entry.get("1.0", 'end-1c') == ans):
+                messagebox.showinfo("Result", "CORRECT!")
+                # displayTablet(iterToTrans(k+1))
+
+            elif entry.get("1.0", 'end-1c') == "e":
+                messagebox.showinfo("Bye", "You pressed EXIT!")
+                Keyboard_App.destroy()
+
+            elif ans == ansAFTER:
+                messagebox.showinfo(
+                    "Duplicate, you will have to restart the game")
+
+            else:
+                messagebox.showinfo(
+                    "Result", "Incorrect; the Correct answer is:\n                   " + ansAFTER)
 
         else:
-            messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + ansAFTER)
-
-    else:
-        entry.insert(tkinter.END, value)
+            entry.insert(tkinter.END, value)
 
 
 def interpreter(SourceWord):
@@ -184,7 +196,7 @@ def interpreter(SourceWord):
     BoxFirst = Box[0]
     BoxSecond = Box[1]
     length = str(len(SourceWord))
-    print(length)
+    # print(length)
 
     # Root letters
     if BoxSecond == "1":
@@ -210,7 +222,7 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
-redeploy(ToTranslate)
+redeploy(iterToTrans(0))
 for button in buttons:
     # redeploy(ToTranslate)
 
