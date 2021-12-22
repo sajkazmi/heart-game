@@ -102,23 +102,26 @@ def select(value, k):
     # if value != "/":
     # for k in range(5):
     # while value != "/":
-    ToTranslat = iterToTrans(k)
-    ans = redeploy(ToTranslat)
-    displayTablet(ToTranslat)
-    print("ans: ", ans)
+
     entry.insert(tkinter.END, value)
-    while value != "/":
+    if value == "/":
+        ToTranslat = iterToTrans(k)
+        ans = redeploy(ToTranslat)
+        displayTablet(ToTranslat)
+        print("ans: ", ans)
+        # entry.get("1.0", 'end-1c')
+        # entry.insert(tkinter.END, value)
         if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
             k = k + 1
 
-        elif entry.get("1.0", 'end-1c') == "e":
-            messagebox.showinfo("Bye", "You pressed EXIT!")
-            Keyboard_App.destroy()
+        # elif entry.get("1.0", 'end-1c') == "e":
+        #     messagebox.showinfo("Bye", "You pressed EXIT!")
+        #     Keyboard_App.destroy()
 
-        else:
-            messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+        # else:
+        #     messagebox.showinfo(
+        #         "Result", "Incorrect; the Correct answer is:\n                   " + ans)
 
 
 def interpreter(SourceWord):
