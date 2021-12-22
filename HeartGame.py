@@ -106,7 +106,7 @@ for k in range(5):
             print("ans: ", ans)
             # ans = interpreter(iterToTrans(k))
             # redeploy(iterToTrans(k))
-            ansAFTER = redeploy(iterToTrans(k+1))
+            # ansAFTER = redeploy(iterToTrans(k+1))
             # print(store(ans, k))
             if (entry.get("1.0", 'end-1c') == ans):
                 messagebox.showinfo("Result", "CORRECT!")
@@ -116,13 +116,13 @@ for k in range(5):
                 messagebox.showinfo("Bye", "You pressed EXIT!")
                 Keyboard_App.destroy()
 
-            elif ans == ansAFTER:
-                messagebox.showinfo(
-                    "Duplicate, you will have to restart the game")
+            # elif ans == ansAFTER:
+            #     messagebox.showinfo(
+            #         "Duplicate, you will have to restart the game")
 
             else:
                 messagebox.showinfo(
-                    "Result", "Incorrect; the Correct answer is:\n                   " + ansAFTER)
+                    "Result", "Incorrect; the Correct answer is:\n                   " + ans)
 
         else:
             entry.insert(tkinter.END, value)
