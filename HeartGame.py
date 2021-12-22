@@ -95,37 +95,30 @@ def redeploy(ToTrans):
 #     return memory[m]
 
 
-for k in range(5):
-    def select(value):
-        # each time I click, this function is invoked
+# def entry(text):
 
-        if value == "/":
-            ToTranslat = iterToTrans(k)
-            displayTablet(ToTranslat)
-            ans = redeploy(ToTranslat)
-            print("ans: ", ans)
-            # ans = interpreter(iterToTrans(k))
-            # redeploy(iterToTrans(k))
-            # ansAFTER = redeploy(iterToTrans(k+1))
-            # print(store(ans, k))
-            if (entry.get("1.0", 'end-1c') == ans):
-                messagebox.showinfo("Result", "CORRECT!")
-                # displayTablet(iterToTrans(k+1))
+def select(value, k):
+    # each time I click on a button, this function is invoked
+    # if value != "/":
+    # for k in range(5):
+    # while value != "/":
+    ToTranslat = iterToTrans(k)
+    ans = redeploy(ToTranslat)
+    displayTablet(ToTranslat)
+    print("ans: ", ans)
+    entry.insert(tkinter.END, value)
+    while value != "/":
+        if entry.get("1.0", 'end-1c') == ans:
+            messagebox.showinfo("Result", "CORRECT!")
+            k = k + 1
 
-            elif entry.get("1.0", 'end-1c') == "e":
-                messagebox.showinfo("Bye", "You pressed EXIT!")
-                Keyboard_App.destroy()
-
-            # elif ans == ansAFTER:
-            #     messagebox.showinfo(
-            #         "Duplicate, you will have to restart the game")
-
-            else:
-                messagebox.showinfo(
-                    "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+        elif entry.get("1.0", 'end-1c') == "e":
+            messagebox.showinfo("Bye", "You pressed EXIT!")
+            Keyboard_App.destroy()
 
         else:
-            entry.insert(tkinter.END, value)
+            messagebox.showinfo(
+                "Result", "Incorrect; the Correct answer is:\n                   " + ans)
 
 
 def interpreter(SourceWord):
@@ -222,11 +215,15 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
-redeploy(iterToTrans(0))
-for button in buttons:
+# redeploy(iterToTrans(0))
+# for button in buttons:
     # redeploy(ToTranslate)
 
-    def command(x=button): select(x)
+
+for button in buttons:
+    def command(x=button):
+        select(x, 0)
+    # while button != '/':
     tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
