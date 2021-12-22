@@ -13,6 +13,8 @@
 
 # solution value suggests ans is not correct.
 
+# end-1c can be used to get the last character of the string, / may be mismatching with the correct answer.
+
 import tkinter as tk
 from functools import partial
 from tkinter import messagebox
@@ -103,7 +105,7 @@ def select(value, k):
     # for k in range(5):
     # while value != "/":
 
-    entry.insert(tkinter.END, value)
+    entry.insert(tkinter.END, value)    # insert value into text box
     if value == "/":
         ToTranslat = iterToTrans(k)
         ans = redeploy(ToTranslat)
@@ -113,15 +115,14 @@ def select(value, k):
         # entry.insert(tkinter.END, value)
         if entry.get("1.0", 'end-1c') == ans:
             messagebox.showinfo("Result", "CORRECT!")
-            k = k + 1
 
         # elif entry.get("1.0", 'end-1c') == "e":
         #     messagebox.showinfo("Bye", "You pressed EXIT!")
         #     Keyboard_App.destroy()
 
-        # else:
-        #     messagebox.showinfo(
-        #         "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+        else:
+            messagebox.showinfo(
+                "Result", "Incorrect; the Correct answer is:\n                   " + ans)
 
 
 def interpreter(SourceWord):
