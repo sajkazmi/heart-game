@@ -113,7 +113,9 @@ def select(value, k):
         print("ans: ", ans)
         # entry.get("1.0", 'end-1c')
         # entry.insert(tkinter.END, value)
-        if entry.get("1.0", 'end-1c') == ans:
+        inpu = entry.get("1.0", 'end-1c')
+        print("input: ", inpu)
+        if inpu == ans:
             messagebox.showinfo("Result", "CORRECT!")
 
         # elif entry.get("1.0", 'end-1c') == "e":
