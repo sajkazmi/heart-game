@@ -99,6 +99,7 @@ def redeploy(ToTrans):
 
 # def entry(text):
 
+
 def select(value, k):
     # each time I click on a button, this function is invoked
     # if value != "/":
@@ -107,15 +108,16 @@ def select(value, k):
 
     entry.insert(tkinter.END, value)    # insert value into text box
     if value == "/":
+        ans = np.array([])
         ToTranslat = iterToTrans(k)
-        ans = redeploy(ToTranslat)
+        ans = np.append(ans, redeploy(ToTranslat))
         displayTablet(ToTranslat)
-        print("ans: ", ans)
+        print("ans: ", ans[k])
         # entry.get("1.0", 'end-1c')
         # entry.insert(tkinter.END, value)
-        inpu = entry.get("1.0", 'end-1c')
+        inpu = entry.get("1.0", 'end-2c')
         print("input: ", inpu)
-        if inpu == ans:
+        if inpu == ans[k]:
             messagebox.showinfo("Result", "CORRECT!")
 
         # elif entry.get("1.0", 'end-1c') == "e":
@@ -124,7 +126,7 @@ def select(value, k):
 
         else:
             messagebox.showinfo(
-                "Result", "Incorrect; the Correct answer is:\n                   " + ans)
+                "Result", "Incorrect; the Correct answer is:\n                   " + ans[k])
 
 
 def interpreter(SourceWord):
