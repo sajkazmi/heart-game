@@ -110,7 +110,7 @@ def select(value, k):
     if value == "/":
         ans = np.array([])
         ToTranslat = iterToTrans(k)
-        ans = np.append(ans, redeploy(ToTranslat))
+        ans = np.append(ans, k, redeploy(ToTranslat))
         displayTablet(ToTranslat)
         print("ans: ", ans[k])
         # entry.get("1.0", 'end-1c')
