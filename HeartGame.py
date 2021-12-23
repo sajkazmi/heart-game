@@ -108,9 +108,9 @@ def select(value, k):
 
     entry.insert(tkinter.END, value)    # insert value into text box
     if value == "/":
-        ans = np.array([])
+        ans = np.array([], dtype=object)
         ToTranslat = iterToTrans(k)
-        ans = np.append(ans, k, redeploy(ToTranslat))
+        ans = np.append(ans, redeploy(ToTranslat))
         displayTablet(ToTranslat)
         print("ans: ", ans[k])
         # entry.get("1.0", 'end-1c')
