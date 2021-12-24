@@ -41,23 +41,63 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("415x705")
 
 
-# for adjusting location and size of text box
-entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
-entry.grid(row=1, columnspan=40, pady=10)
+def detectClicks():
+    # for adjusting location and size of text box
+    entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
+    entry.grid(row=1, columnspan=40, pady=10)
 
-buttons = ['i', 'r', '|', '9',
-           'h', 'q', 'z', '8',
-           'g', 'p', 'y', '7',
-           'f', 'o', 'x', '6',
-           'e', 'n', 'w', '5',
-           'd', 'm', 'v', '4',
-           'c', 'l', 'u', '3',
-           'b', 'k', 't', '2',
-           'a', 'j', 's', '1',
-           '0', '1', '2', '/']
+    buttons = ['i', 'r', '|', '9',
+               'h', 'q', 'z', '8',
+               'g', 'p', 'y', '7',
+               'f', 'o', 'x', '6',
+               'e', 'n', 'w', '5',
+               'd', 'm', 'v', '4',
+               'c', 'l', 'u', '3',
+               'b', 'k', 't', '2',
+               'a', 'j', 's', '1',
+               '0', '1', '2', '/']
 
-varRow = 2
-varColumn = 0
+    for button in buttons:
+        def command(x=button):
+            select(x, 0)
+        # while button != '/':
+        varRow = 2
+        varColumn = 0
+
+        tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+            row=varRow, column=varColumn)
+
+        varColumn += 1
+        if varColumn > 3 and varRow == 2:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 3:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 4:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 5:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 6:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 7:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 8:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 9:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 10:
+            varColumn = 0
+            varRow += 1
+
+    return entry
 
 
 def generateWord(c):
@@ -66,7 +106,7 @@ def generateWord(c):
 
 
 # for count in range(5):
-counter = 0
+# counter = 0
 
 
 def iterToTrans(counter):
@@ -105,7 +145,7 @@ def select(value, k):
     # if value != "/":
     # for k in range(5):
     # while value != "/":
-
+    entry = detectClicks()
     entry.insert(tkinter.END, value)    # insert value into text box
     if value == "/":
         ans = np.array([], dtype=object)
@@ -117,7 +157,7 @@ def select(value, k):
         # entry.insert(tkinter.END, value)
         inpu = entry.get("1.0", 'end-2c')
         print("input: ", inpu)
-        if inpu == ans[k]:
+        if inpu == ans[k-1]:
             messagebox.showinfo("Result", "CORRECT!")
 
         # elif entry.get("1.0", 'end-1c') == "e":
@@ -225,45 +265,5 @@ def interpreter(SourceWord):
 
 # redeploy(iterToTrans(0))
 # for button in buttons:
-    # redeploy(ToTranslate)
-
-
-for button in buttons:
-    def command(x=button):
-        select(x, 0)
-    # while button != '/':
-    tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                   activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-        row=varRow, column=varColumn)
-
-    varColumn += 1
-    if varColumn > 3 and varRow == 2:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 3:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 4:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 5:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 6:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 7:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 8:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 9:
-        varColumn = 0
-        varRow += 1
-    if varColumn > 3 and varRow == 10:
-        varColumn = 0
-        varRow += 1
-
-
+# redeploy(ToTranslate)
 Keyboard_App.mainloop()
