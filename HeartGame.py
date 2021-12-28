@@ -237,8 +237,8 @@ entry = Text(Keyboard_App, width=138, height=2, font=(
 # display blank text box, like a search box
 entry.grid(row=1, columnspan=40, pady=10)
 
-sentry = entry.insert(tkinter.END, "")  # insert value into text box
+sentry = entry.insert(tkinter.END)  # insert value into text box
 
-select(sentry, 1)
+interpreter(sentry)
 
 Keyboard_App.mainloop()
