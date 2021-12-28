@@ -15,6 +15,8 @@
 
 # end-1c can be used to get the last character of the string, / may be mismatching with the correct answer.
 
+# Need one function to display buttons, and another function to select the input.
+
 import tkinter as tk
 from functools import partial
 from tkinter import messagebox
@@ -62,7 +64,7 @@ def select(value, k):
         ans = np.append(ans, redeploy(ToTranslat))
         displayTablet(ToTranslat)
         print("ans: ", ans[k])
-        inpu = sentry.get("1.0", 'end-2c')
+        inpu = value.get("1.0", 'end-2c')
         print("input: ", inpu)
         if inpu == ans[k-1]:
             messagebox.showinfo("Result", "CORRECT!")
@@ -166,8 +168,7 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
-def detectClicks(button):
-    # for adjusting location and size of text box
+def displayButtons():
 
     buttons = ['i', 'r', '|', '9',
                'h', 'q', 'z', '8',
@@ -181,13 +182,13 @@ def detectClicks(button):
                '0', '1', '2', '/']
 
     for button in buttons:
-        def command(button):
-            select(button, 0)
+        # def command(button):
+        #     select(button, 0)
         varRow = 2
         varColumn = 0
 
         tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=button).grid(
             row=varRow, column=varColumn)
 
         varColumn += 1
@@ -219,11 +220,23 @@ def detectClicks(button):
             varColumn = 0
             varRow += 1
 
-    return buttons
+
+# def detectClicks(button):
 
 
-entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
+#     return buttons
+
+displayButtons()
+
+# formatting of text for text box
+entry = Text(Keyboard_App, width=138, height=2, font=(
+    'arial', 10, 'bold'))
+
+# display blank text box, like a search box
 entry.grid(row=1, columnspan=40, pady=10)
+
 sentry = entry.insert(tkinter.END, "")  # insert value into text box
+
+select(sentry, 1)
 
 Keyboard_App.mainloop()
