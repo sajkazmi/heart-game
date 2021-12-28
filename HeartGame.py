@@ -36,17 +36,17 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("415x705")
 
 
-def generateWord(c):
+def generateWord():
     translate = random.choice(words)
     return translate
 
 
 def iterToTrans(counter):
-    ToTranslate = np.str_(generateWord(counter))
+    ToTranslate = np.str_(generateWord())
     return ToTranslate
 
 
-def displayTablet(SourceText):
+def displayTablet(SourceText):    # Likely this function is displaying the sole slash (bug)
     # Following was source of word disappearing bug:
     label1 = Label(Keyboard_App, text="Visual Memory TABLET"+"\n"+str(SourceText), font=(
         "arial", 20, 'bold'), fg='yellow', bg='blue').grid(row=0, columnspan=40, padx=30, sticky=W)
@@ -226,6 +226,8 @@ def displayButtons():
 
 #     return buttons
 
+
+generateWord()
 displayButtons()
 
 # formatting of text for text box
