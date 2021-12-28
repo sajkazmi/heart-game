@@ -34,68 +34,6 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("415x705")
 
 
-def detectClicks(button):
-    # for adjusting location and size of text box
-
-    buttons = ['i', 'r', '|', '9',
-               'h', 'q', 'z', '8',
-               'g', 'p', 'y', '7',
-               'f', 'o', 'x', '6',
-               'e', 'n', 'w', '5',
-               'd', 'm', 'v', '4',
-               'c', 'l', 'u', '3',
-               'b', 'k', 't', '2',
-               'a', 'j', 's', '1',
-               '0', '1', '2', '/']
-
-    for button in buttons:
-        def command(button):
-            select(button, 0)
-        varRow = 2
-        varColumn = 0
-
-        tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
-            row=varRow, column=varColumn)
-
-        varColumn += 1
-        if varColumn > 3 and varRow == 2:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 3:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 4:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 5:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 6:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 7:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 8:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 9:
-            varColumn = 0
-            varRow += 1
-        if varColumn > 3 and varRow == 10:
-            varColumn = 0
-            varRow += 1
-
-    return buttons
-
-
-entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
-entry.grid(row=1, columnspan=40, pady=10)
-entry.insert(tkinter.END, value)    # insert value into text box
-sentry = detectClicks(entry)
-
-
 def generateWord(c):
     translate = random.choice(words)
     return translate
@@ -124,7 +62,7 @@ def select(value, k):
         ans = np.append(ans, redeploy(ToTranslat))
         displayTablet(ToTranslat)
         print("ans: ", ans[k])
-        inpu = entry.get("1.0", 'end-2c')
+        inpu = sentry.get("1.0", 'end-2c')
         print("input: ", inpu)
         if inpu == ans[k-1]:
             messagebox.showinfo("Result", "CORRECT!")
@@ -227,5 +165,65 @@ def interpreter(SourceWord):
     correctNOTATION = BoxFirst+BoxSecond+ANE+length
     return correctNOTATION
 
+
+def detectClicks(button):
+    # for adjusting location and size of text box
+
+    buttons = ['i', 'r', '|', '9',
+               'h', 'q', 'z', '8',
+               'g', 'p', 'y', '7',
+               'f', 'o', 'x', '6',
+               'e', 'n', 'w', '5',
+               'd', 'm', 'v', '4',
+               'c', 'l', 'u', '3',
+               'b', 'k', 't', '2',
+               'a', 'j', 's', '1',
+               '0', '1', '2', '/']
+
+    for button in buttons:
+        def command(button):
+            select(button, 0)
+        varRow = 2
+        varColumn = 0
+
+        tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
+            row=varRow, column=varColumn)
+
+        varColumn += 1
+        if varColumn > 3 and varRow == 2:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 3:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 4:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 5:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 6:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 7:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 8:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 9:
+            varColumn = 0
+            varRow += 1
+        if varColumn > 3 and varRow == 10:
+            varColumn = 0
+            varRow += 1
+
+    return buttons
+
+
+entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
+entry.grid(row=1, columnspan=40, pady=10)
+sentry = entry.insert(tkinter.END, "")  # insert value into text box
 
 Keyboard_App.mainloop()
