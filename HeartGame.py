@@ -22,13 +22,6 @@ from tkinter import*
 import tkinter
 import random
 import numpy as np
-# import lists as translate
-# import lists as ToTranslate
-# from lists import*
-# from array import *
-
-# ToTranslate = np.array_str([].strip('[]'))
-# ToTranslateAFTER = np.array_str([].strip('[]'))
 
 
 with open("./wordlist.10000.txt") as word_file:
@@ -41,10 +34,8 @@ Keyboard_App['bg'] = 'blue'
 Keyboard_App.geometry("415x705")
 
 
-def detectClicks():
+def detectClicks(button):
     # for adjusting location and size of text box
-    entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
-    entry.grid(row=1, columnspan=40, pady=10)
 
     buttons = ['i', 'r', '|', '9',
                'h', 'q', 'z', '8',
@@ -58,9 +49,8 @@ def detectClicks():
                '0', '1', '2', '/']
 
     for button in buttons:
-        def command(x=button):
-            select(x, 0)
-        # while button != '/':
+        def command(button):
+            select(button, 0)
         varRow = 2
         varColumn = 0
 
@@ -97,7 +87,13 @@ def detectClicks():
             varColumn = 0
             varRow += 1
 
-    return entry
+    return buttons
+
+
+entry = Text(Keyboard_App, width=138, height=2, font=('arial', 10, 'bold'))
+entry.grid(row=1, columnspan=40, pady=10)
+entry.insert(tkinter.END, value)    # insert value into text box
+sentry = detectClicks(entry)
 
 
 def generateWord(c):
@@ -105,13 +101,8 @@ def generateWord(c):
     return translate
 
 
-# for count in range(5):
-# counter = 0
-
-
 def iterToTrans(counter):
     ToTranslate = np.str_(generateWord(counter))
-    # displayTablet(ToTranslate)
     return ToTranslate
 
 
@@ -122,47 +113,21 @@ def displayTablet(SourceText):
 
 
 def redeploy(ToTrans):
-    # ToTranslate = generateWord()
-    # displayTablet(ToTrans)
     answer = interpreter(ToTrans)
     return answer
 
 
-# def store(solution, m):
-#     print("solution: ", solution)
-#     memory = [] * 10
-#     # memory[m] = solution
-#     memory[m] = solution
-#     print("memory: ", memory[m])
-#     return memory[m]
-
-
-# def entry(text):
-
-
 def select(value, k):
-    # each time I click on a button, this function is invoked
-    # if value != "/":
-    # for k in range(5):
-    # while value != "/":
-    entry = detectClicks()
-    entry.insert(tkinter.END, value)    # insert value into text box
     if value == "/":
         ans = np.array([], dtype=object)
         ToTranslat = iterToTrans(k)
         ans = np.append(ans, redeploy(ToTranslat))
         displayTablet(ToTranslat)
         print("ans: ", ans[k])
-        # entry.get("1.0", 'end-1c')
-        # entry.insert(tkinter.END, value)
         inpu = entry.get("1.0", 'end-2c')
         print("input: ", inpu)
         if inpu == ans[k-1]:
             messagebox.showinfo("Result", "CORRECT!")
-
-        # elif entry.get("1.0", 'end-1c') == "e":
-        #     messagebox.showinfo("Bye", "You pressed EXIT!")
-        #     Keyboard_App.destroy()
 
         else:
             messagebox.showinfo(
@@ -263,7 +228,4 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
-# redeploy(iterToTrans(0))
-# for button in buttons:
-# redeploy(ToTranslate)
 Keyboard_App.mainloop()
