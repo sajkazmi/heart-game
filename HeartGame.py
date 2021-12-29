@@ -231,14 +231,18 @@ generateWord()
 displayButtons()
 
 # formatting of text for text box
-entry = Text(Keyboard_App, width=138, height=2, font=(
-    'arial', 10, 'bold'))
+# entry = Text(Keyboard_App, width=138, height=2, font=(
+#     'arial', 10, 'bold'))
+
+
+entry = Entry(Keyboard_App, width=10)
 
 # display blank text box, like a search box
-entry.grid(row=1, columnspan=40, pady=10)
+# entry.grid(row=1, columnspan=40, pady=10)
 
-sentry = entry.insert(tkinter.END, value)  # insert value into text box
+value = entry.get()
+# sentry = entry.insert(tkinter.END, value)  # insert value into text box
 
-interpreter(sentry)
+interpreter(str(entry))
 
 Keyboard_App.mainloop()
