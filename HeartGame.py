@@ -58,7 +58,7 @@ def redeploy(ToTrans):
 
 
 def select(value, k):
-    if value == "/":
+    if value == "=":
         ans = np.array([], dtype=object)
         ToTranslat = iterToTrans(k)
         ans = np.append(ans, redeploy(ToTranslat))
@@ -168,6 +168,11 @@ def interpreter(SourceWord):
     return correctNOTATION
 
 
+entry = Entry(Keyboard_App, width=10)
+value = entry.get()
+interpreter(str(entry))
+
+
 def displayButtons():
 
     buttons = ['i', 'r', '|', '9',
@@ -188,8 +193,10 @@ def displayButtons():
         varColumn = 0
 
         tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
-                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=button).grid(
-            row=varRow, column=varColumn)
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=select(value, 1))
+
+        # grid(
+        #     row=varRow, column=varColumn))
 
         varColumn += 1
         if varColumn > 3 and varRow == 2:
@@ -221,12 +228,6 @@ def displayButtons():
             varRow += 1
 
 
-# def detectClicks(button):
-
-
-#     return buttons
-
-
 generateWord()
 displayButtons()
 
@@ -234,15 +235,5 @@ displayButtons()
 # entry = Text(Keyboard_App, width=138, height=2, font=(
 #     'arial', 10, 'bold'))
 
-
-entry = Entry(Keyboard_App, width=10)
-
-# display blank text box, like a search box
-# entry.grid(row=1, columnspan=40, pady=10)
-
-value = entry.get()
-# sentry = entry.insert(tkinter.END, value)  # insert value into text box
-
-interpreter(str(entry))
 
 Keyboard_App.mainloop()
