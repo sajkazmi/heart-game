@@ -4,6 +4,7 @@
 
 # Reference format: "lead" = 12c4
 
+import tkinter
 from tkinter import*
 window = Tk()
 window.geometry('500x400')
@@ -21,4 +22,16 @@ buttons = ['i', 'r', '|', '9',
            '0', '1', '2', '/']
 
 inpu.grid(row=0, column=0)
+
+
+def dispButtons():
+    for button in buttons:
+        tkinter.Button(window, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
+                       activebackground="#ffffff", activeforeground="#000990", relief="raised", command=convertInput).grid(
+            row=5, column=1)
+
+
+dispButtons()
+
+
 window.mainloop()
