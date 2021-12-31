@@ -10,6 +10,9 @@ window = Tk()
 window.geometry('500x400')
 inpu = Entry(window, width=10, bg='blue')
 
+with open("./wordlist.10000.txt") as word_file:
+    words = word_file.read().split()
+
 buttons = [['i', 'r', '|', '9'],
            ['h', 'q', 'z', '8'],
            ['g', 'p', 'y', '7'],
@@ -39,6 +42,9 @@ def dispButtons():
     #                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=convertInput).grid(
     #         row=5, column=1)
 dispButtons()
+
+
+def generateWord():
 
 
 def convertInput():
