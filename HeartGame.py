@@ -4,14 +4,22 @@
 
 # Reference format: "lead" = 12c4
 
+import random
 import tkinter
 from tkinter import*
 window = Tk()
 window.geometry('500x400')
 inpu = Entry(window, width=10, bg='blue')
 
+
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
+
+
+def generateWord():
+    translate = random.choice(words)
+    return translate
+
 
 buttons = [['i', 'r', '|', '9'],
            ['h', 'q', 'z', '8'],
@@ -26,6 +34,8 @@ buttons = [['i', 'r', '|', '9'],
 
 inpu.grid(row=0, column=0)
 
+Label(window, text=generateWord()).grid(row=0, column=1)
+
 
 def dispButtons():
     r = 1
@@ -37,17 +47,5 @@ def dispButtons():
         r += 1
 
 
-    # for button in buttons:
-    #     tkinter.Button(window, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
-    #                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=convertInput).grid(
-    #         row=5, column=1)
 dispButtons()
-
-
-def generateWord():
-
-
-def convertInput():
-
-
 window.mainloop()
