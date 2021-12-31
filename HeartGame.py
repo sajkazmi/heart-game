@@ -48,4 +48,25 @@ def dispButtons():
 
 
 dispButtons()
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+           'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+# Reference format: "lead" = 12c4
+
+
+def translateWord():
+    for i in range(0, 26):
+        print(letters[i])
+        letterValue = i + 1
+        print(letterValue)
+        i += 1
+
+    # l / 12 / 1 + 2 = 3; z / 26 / 2 + 6 = 8   / method 1
+    if l, then c / if z, then h / method 2
+    # for a in range(0, 26):
+
+
+translateWord()
+
 window.mainloop()
