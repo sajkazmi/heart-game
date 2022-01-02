@@ -34,7 +34,9 @@ buttons = [['i', 'r', '|', '9'],
 
 inpu.grid(row=0, column=0)
 
-Label(window, text=generateWord()).grid(row=0, column=1)
+randomWord = generateWord()
+
+Label(window, text=randomWord).grid(row=0, column=1)
 
 
 def dispButtons():
@@ -53,81 +55,88 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 # Reference format: "lead" = 13c4
+# Reference format: "medicare" = 14d8
+
+# Part One: Initial Letter
+# Part Two: basis
+# Part Three: length of word
 
 
-def translateWordPartOne(text):
-    for i in range(0, 26):
-        if text[i] == 'a':
-            letterValue = '01'
-        elif text[i] == 'b':
-            letterValue = '02'
-        elif text[i] == 'c':
-            letterValue = '03'
-        elif text[i] == 'd':
-            letterValue = '04'
-        elif text[i] == 'e':
-            letterValue = '05'
-        elif text[i] == 'f':
-            letterValue = '06'
-        elif text[i] == 'g':
-            letterValue = '07'
-        elif text[i] == 'h':
-            letterValue = '08'
-        elif text[i] == 'i':
-            letterValue = '09'
-        elif text[i] == 'j':
-            letterValue = '11'
-        elif text[i] == 'k':
-            letterValue = '12'
-        elif text[i] == 'l':
-            letterValue = '13'
-        elif text[i] == 'm':
-            letterValue = '14'
-        elif text[i] == 'n':
-            letterValue = '15'
-        elif text[i] == 'o':
-            letterValue = '16'
-        elif letters[i] == 'p':
-            letterValue = '17'
-        elif letters[i] == 'q':
-            letterValue = '18'
-        elif text[i] == 'r':
-            letterValue = '19'
-        elif text[i] == 's':
-            letterValue = '21'
-        elif text[i] == 't':
-            letterValue = '22'
-        elif text[i] == 'u':
-            letterValue = '23'
-        elif text[i] == 'v':
-            letterValue = '24'
-        elif text[i] == 'w':
-            letterValue = '25'
-        elif text[i] == 'x':
-            letterValue = '26'
-        elif text[i] == 'y':
-            letterValue = '27'
-        elif text[i] == 'z':
-            letterValue = '28'
-        elif text[i] == '|':
-            letterValue = '29'
-        else:
-            letterValue = '29'
+def translateWordPartOne(randomWord):
+    # for i in range(0, 26):
+    if randomWord[0] == 'a':
+        letterValue = '01'
+    elif randomWord[0] == 'b':
+        letterValue = '02'
+    elif randomWord[0] == 'c':
+        letterValue = '03'
+    elif randomWord[0] == 'd':
+        letterValue = '04'
+    elif randomWord[0] == 'e':
+        letterValue = '05'
+    elif randomWord[0] == 'f':
+        letterValue = '06'
+    elif randomWord[0] == 'g':
+        letterValue = '07'
+    elif randomWord[0] == 'h':
+        letterValue = '08'
+    elif randomWord[0] == 'i':
+        letterValue = '09'
+    elif randomWord[0] == 'j':
+        letterValue = '11'
+    elif randomWord[0] == 'k':
+        letterValue = '12'
+    elif randomWord[0] == 'l':
+        letterValue = '13'
+    elif randomWord[0] == 'm':
+        letterValue = '14'
+    elif randomWord[0] == 'n':
+        letterValue = '15'
+    elif randomWord[0] == 'o':
+        letterValue = '16'
+    elif randomWord[0] == 'p':
+        letterValue = '17'
+    elif randomWord[0] == 'q':
+        letterValue = '18'
+    elif randomWord[0] == 'r':
+        letterValue = '19'
+    elif randomWord[0] == 's':
+        letterValue = '21'
+    elif randomWord[0] == 't':
+        letterValue = '22'
+    elif randomWord[0] == 'u':
+        letterValue = '23'
+    elif randomWord[0] == 'v':
+        letterValue = '24'
+    elif randomWord[0] == 'w':
+        letterValue = '25'
+    elif randomWord[0] == 'x':
+        letterValue = '26'
+    elif randomWord[0] == 'y':
+        letterValue = '27'
+    elif randomWord[0] == 'z':
+        letterValue = '28'
+    else:
+        letterValue = '29'
     return letterValue
 
 
-def translateWordPartTwo(letterEqualTo):
-    if letterEqualTo == '01':
-        basis = letterEqualTo[:2]
-        print(basis)
-        # print(letters[i])
-        # letterValue = i + 2
-        # print(letterValue)
-        # i += 1
+print(translateWordPartOne(randomWord))
 
-    # l / 12 / 1 + 2 = 3; z / 26 / 2 + 6 = 8   / method 1
-    # if l, then c / if z, then h / method 2
-    # for a in range(0, 26):
+
+# def translateWordPartTwo(letterEqualTo):
+#     if letterEqualTo == '01':
+#         basis = letterEqualTo[:2]
+#         print(basis)
+
+# print(letters[i])
+# letterValue = i + 2
+# print(letterValue)
+# i += 1
+
+# l / 12 / 1 + 2 = 3; z / 26 / 2 + 6 = 8   / method 1
+# if l, then c / if z, then h / method 2
+# for a in range(0, 26):
 
 
 # trans = translateWordPartOne() + str(translateWordPartTwo(translateWordPartOne()))
