@@ -55,65 +55,71 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 # Reference format: "lead" = 13c4
 
 
-def translateWord():
+def translateWordPartOne(text):
     for i in range(0, 26):
-        if letters[i] == 'a':
+        if text[i] == 'a':
             letterValue = '01'
-        elif letters[i] == 'b':
+        elif text[i] == 'b':
             letterValue = '02'
-        elif letters[i] == 'c':
+        elif text[i] == 'c':
             letterValue = '03'
-        elif letters[i] == 'd':
+        elif text[i] == 'd':
             letterValue = '04'
-        elif letters[i] == 'e':
+        elif text[i] == 'e':
             letterValue = '05'
-        elif letters[i] == 'f':
+        elif text[i] == 'f':
             letterValue = '06'
-        elif letters[i] == 'g':
+        elif text[i] == 'g':
             letterValue = '07'
-        elif letters[i] == 'h':
+        elif text[i] == 'h':
             letterValue = '08'
-        elif letters[i] == 'i':
+        elif text[i] == 'i':
             letterValue = '09'
-        elif letters[i] == 'j':
+        elif text[i] == 'j':
             letterValue = '11'
-        elif letters[i] == 'k':
+        elif text[i] == 'k':
             letterValue = '12'
-        elif letters[i] == 'l':
+        elif text[i] == 'l':
             letterValue = '13'
-        elif letters[i] == 'm':
+        elif text[i] == 'm':
             letterValue = '14'
-        elif letters[i] == 'n':
+        elif text[i] == 'n':
             letterValue = '15'
-        elif letters[i] == 'o':
+        elif text[i] == 'o':
             letterValue = '16'
         elif letters[i] == 'p':
             letterValue = '17'
         elif letters[i] == 'q':
             letterValue = '18'
-        elif letters[i] == 'r':
+        elif text[i] == 'r':
             letterValue = '19'
-        elif letters[i] == 's':
+        elif text[i] == 's':
             letterValue = '21'
-        elif letters[i] == 't':
+        elif text[i] == 't':
             letterValue = '22'
-        elif letters[i] == 'u':
+        elif text[i] == 'u':
             letterValue = '23'
-        elif letters[i] == 'v':
+        elif text[i] == 'v':
             letterValue = '24'
-        elif letters[i] == 'w':
+        elif text[i] == 'w':
             letterValue = '25'
-        elif letters[i] == 'x':
+        elif text[i] == 'x':
             letterValue = '26'
-        elif letters[i] == 'y':
+        elif text[i] == 'y':
             letterValue = '27'
-        elif letters[i] == 'z':
+        elif text[i] == 'z':
             letterValue = '28'
-        elif letters[i] == '|':
+        elif text[i] == '|':
             letterValue = '29'
         else:
             letterValue = '29'
+    return letterValue
 
+
+def translateWordPartTwo(letterEqualTo):
+    if letterEqualTo == '01':
+        basis = letterEqualTo[:2]
+        print(basis)
         # print(letters[i])
         # letterValue = i + 2
         # print(letterValue)
@@ -124,6 +130,11 @@ def translateWord():
     # for a in range(0, 26):
 
 
-translateWord()
+# trans = translateWordPartOne() + str(translateWordPartTwo(translateWordPartOne()))
+# print(trans)
+
+
+# if input = trans
+# : "Correct Answer"
 
 window.mainloop()
