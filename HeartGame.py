@@ -51,8 +51,8 @@ def dispButtons():
 
 dispButtons()
 
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-           'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+#            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 # Reference format: "lead" = 13c4
 # Reference format: "medicare" = 14d8
@@ -124,31 +124,86 @@ def translateWordPartOne(randomWord):
 # Part Two: basis
 # Reference format: "medicare" = 14d8
 # Reference format: "moments" = 14d7
-def translateWordPartTwo(letterValue):
-    if letterValue[-1] == '1':
+def translateWordPartTwo(randomWord):
+    if randomWord[0] == 'a':
         basis = 'a'
-    elif letterValue[-1] == '2':
+    elif randomWord[0] == 'b':
         basis = 'b'
-    elif letterValue[-1] == '3':
+    elif randomWord[0] == 'c':
         basis = 'c'
-    elif letterValue[-1] == '4':
+    elif randomWord[0] == 'd':
         basis = 'd'
-    elif letterValue[-1] == '5':
+    elif randomWord[0] == 'e':
         basis = 'e'
-    elif letterValue[-1] == '6':
+    elif randomWord[0] == 'f':
         basis = 'f'
-    elif letterValue[-1] == '7':
+    elif randomWord[0] == 'g':
         basis = 'g'
-    elif letterValue[-1] == '8':
+    elif randomWord[0] == 'h':
+        basis = 'h'
+    elif randomWord[0] == 'i':
+        basis = 'i'
+    elif randomWord[0] == 'j':
+        basis = 'a'
+    elif randomWord[0] == 'k':
+        basis = 'b'
+    elif randomWord[0] == 'l':
+        basis = 'c'
+    elif randomWord[0] == 'm':
+        basis = 'd'
+    elif randomWord[0] == 'n':
+        basis = 'e'
+    elif randomWord[0] == 'o':
+        basis = 'f'
+    elif randomWord[0] == 'p':
+        basis = 'g'
+    elif randomWord[0] == 'q':
+        basis = 'h'
+    elif randomWord[0] == 'r':
+        basis = 'i'
+    elif randomWord[0] == 's':
+        basis = 'a'
+    elif randomWord[0] == 't':
+        basis = 'b'
+    elif randomWord[0] == 'u':
+        basis = 'c'
+    elif randomWord[0] == 'v':
+        basis = 'd'
+    elif randomWord[0] == 'w':
+        basis = 'e'
+    elif randomWord[0] == 'x':
+        basis = 'f'
+    elif randomWord[0] == 'y':
+        basis = 'g'
+    elif randomWord[0] == 'z':
         basis = 'h'
     else:
         basis = 'i'
-    print(basis)
     return basis
+    # if letterValue[-1] == '1':
+    #     basis = 'a'
+    # elif letterValue[-1] == '2':
+    #     basis = 'b'
+    # elif letterValue[-1] == '3':
+    #     basis = 'c'
+    # elif letterValue[-1] == '4':
+    #     basis = 'd'
+    # elif letterValue[-1] == '5':
+    #     basis = 'e'
+    # elif letterValue[-1] == '6':
+    #     basis = 'f'
+    # elif letterValue[-1] == '7':
+    #     basis = 'g'
+    # elif letterValue[-1] == '8':
+    #     basis = 'h'
+    # else:
+    #     basis = 'i'
+    # print(basis)
+    # return basis
 
 
-translateWordPartOne(randomWord)
-translateWordPartTwo(letterValue)
+print(translateWordPartOne(randomWord))
+print(translateWordPartTwo(randomWord))
 
 # print(translateWordPartOne(randomWord))
 # print(translateWordPartTwo(randomWord))
