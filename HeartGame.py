@@ -52,18 +52,75 @@ dispButtons()
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# Reference format: "lead" = 12c4
+# Reference format: "lead" = 13c4
 
 
 def translateWord():
     for i in range(0, 26):
-        print(letters[i])
-        letterValue = i + 1
-        print(letterValue)
-        i += 1
+        if letters[i] == 'a':
+            letterValue = '01'
+        elif letters[i] == 'b':
+            letterValue = '02'
+        elif letters[i] == 'c':
+            letterValue = '03'
+        elif letters[i] == 'd':
+            letterValue = '04'
+        elif letters[i] == 'e':
+            letterValue = '05'
+        elif letters[i] == 'f':
+            letterValue = '06'
+        elif letters[i] == 'g':
+            letterValue = '07'
+        elif letters[i] == 'h':
+            letterValue = '08'
+        elif letters[i] == 'i':
+            letterValue = '09'
+        elif letters[i] == 'j':
+            letterValue = '11'
+        elif letters[i] == 'k':
+            letterValue = '12'
+        elif letters[i] == 'l':
+            letterValue = '13'
+        elif letters[i] == 'm':
+            letterValue = '14'
+        elif letters[i] == 'n':
+            letterValue = '15'
+        elif letters[i] == 'o':
+            letterValue = '16'
+        elif letters[i] == 'p':
+            letterValue = '17'
+        elif letters[i] == 'q':
+            letterValue = '18'
+        elif letters[i] == 'r':
+            letterValue = '19'
+        elif letters[i] == 's':
+            letterValue = '21'
+        elif letters[i] == 't':
+            letterValue = '22'
+        elif letters[i] == 'u':
+            letterValue = '23'
+        elif letters[i] == 'v':
+            letterValue = '24'
+        elif letters[i] == 'w':
+            letterValue = '25'
+        elif letters[i] == 'x':
+            letterValue = '26'
+        elif letters[i] == 'y':
+            letterValue = '27'
+        elif letters[i] == 'z':
+            letterValue = '28'
+        elif letters[i] == '|':
+            letterValue = '29'
+        else:
+            letterValue = '29'
+
+        # print(letters[i])
+        # letterValue = i + 2
+        # print(letterValue)
+        # i += 1
 
     # l / 12 / 1 + 2 = 3; z / 26 / 2 + 6 = 8   / method 1
-    if l, then c / if z, then h / method 2
+    # if l, then c / if z, then h / method 2
     # for a in range(0, 26):
 
 
