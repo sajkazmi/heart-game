@@ -10,7 +10,7 @@ from tkinter import*
 window = Tk()
 window.geometry('500x400')
 inpu = Entry(window, width=10, bg='blue')
-
+letterValue = ""
 
 with open("./wordlist.10000.txt") as word_file:
     words = word_file.read().split()
@@ -121,29 +121,37 @@ def translateWordPartOne(randomWord):
     return letterValue
 
 
-print(translateWordPartOne(randomWord))
+# Part Two: basis
+# Reference format: "medicare" = 14d8
+# Reference format: "moments" = 14d7
+def translateWordPartTwo(letterValue):
+    if letterValue[-1] == '1':
+        basis = 'a'
+    elif letterValue[-1] == '2':
+        basis = 'b'
+    elif letterValue[-1] == '3':
+        basis = 'c'
+    elif letterValue[-1] == '4':
+        basis = 'd'
+    elif letterValue[-1] == '5':
+        basis = 'e'
+    elif letterValue[-1] == '6':
+        basis = 'f'
+    elif letterValue[-1] == '7':
+        basis = 'g'
+    elif letterValue[-1] == '8':
+        basis = 'h'
+    else:
+        basis = 'i'
+    print(basis)
+    return basis
 
 
-# def translateWordPartTwo(letterEqualTo):
-#     if letterEqualTo == '01':
-#         basis = letterEqualTo[:2]
-#         print(basis)
+translateWordPartOne(randomWord)
+translateWordPartTwo(letterValue)
 
-# print(letters[i])
-# letterValue = i + 2
-# print(letterValue)
-# i += 1
+# print(translateWordPartOne(randomWord))
+# print(translateWordPartTwo(randomWord))
 
-# l / 12 / 1 + 2 = 3; z / 26 / 2 + 6 = 8   / method 1
-# if l, then c / if z, then h / method 2
-# for a in range(0, 26):
-
-
-# trans = translateWordPartOne() + str(translateWordPartTwo(translateWordPartOne()))
-# print(trans)
-
-
-# if input = trans
-# : "Correct Answer"
 
 window.mainloop()
