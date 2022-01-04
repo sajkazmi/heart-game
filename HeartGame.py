@@ -214,7 +214,9 @@ redeploy(ToTranslate)
 for button in buttons:
     # redeploy(ToTranslate)
 
-    def command(x=button): select(x)
+    def command(x=button):
+        select(x)
+
     tkinter.Button(Keyboard_App, text=button, width=3, bd=12, font=('arial', 12, ' bold'), bg='blue',
                    activebackground="#ffffff", activeforeground="#000990", relief="raised", command=command).grid(
         row=varRow, column=varColumn)
