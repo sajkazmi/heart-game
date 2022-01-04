@@ -180,33 +180,16 @@ def translateWordPartTwo(randomWord):
     else:
         basis = 'i'
     return basis
-    # if letterValue[-1] == '1':
-    #     basis = 'a'
-    # elif letterValue[-1] == '2':
-    #     basis = 'b'
-    # elif letterValue[-1] == '3':
-    #     basis = 'c'
-    # elif letterValue[-1] == '4':
-    #     basis = 'd'
-    # elif letterValue[-1] == '5':
-    #     basis = 'e'
-    # elif letterValue[-1] == '6':
-    #     basis = 'f'
-    # elif letterValue[-1] == '7':
-    #     basis = 'g'
-    # elif letterValue[-1] == '8':
-    #     basis = 'h'
-    # else:
-    #     basis = 'i'
-    # print(basis)
-    # return basis
+
+
+def translateWordPartThree(randomWord):
+    length = len(randomWord)
+    return length
 
 
 print(translateWordPartOne(randomWord))
 print(translateWordPartTwo(randomWord))
-
-# print(translateWordPartOne(randomWord))
-# print(translateWordPartTwo(randomWord))
+print(translateWordPartThree(randomWord))
 
 
 window.mainloop()
