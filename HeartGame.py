@@ -39,20 +39,24 @@ randomWord = generateWord()
 Label(window, text=randomWord).grid(row=0, column=1)
 
 
+def execute(column):
+    # inpu.delete(0, "end")
+    inpu.insert(0, column)
+
+
 def dispButtons():
     r = 1
     for row in buttons:
         c = 1
         for column in row:
-            Button(window, text=column).grid(row=r, column=c)
+            # inpu.delete(0,"end")
+            Button(window, text=column, command=execute(
+                column)).grid(row=r, column=c)
             c += 1
         r += 1
 
 
 dispButtons()
-
-# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-#            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 # Reference format: "lead" = 13c4
 # Reference format: "medicare" = 14d8
@@ -187,9 +191,17 @@ def translateWordPartThree(randomWord):
     return length
 
 
+def match():
+    if inpu.get() == (str(translateWordPartOne(randomWord)) + translateWordPartTwo(randomWord) + str(translateWordPartThree(randomWord))):
+        print("CORRECT!")
+    else:
+        print("Incorrect!!")
+
+
 print(translateWordPartOne(randomWord))
 print(translateWordPartTwo(randomWord))
 print(translateWordPartThree(randomWord))
+match()
 
 
 window.mainloop()
