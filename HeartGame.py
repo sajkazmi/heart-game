@@ -40,8 +40,8 @@ Label(window, text=randomWord).grid(row=0, column=1)
 
 
 def execute(column):
-    # inpu.delete(0, "end")
-    inpu.insert(0, column)
+    inpu.delete(0, "end")
+    inpu.insert("end", column)
 
 
 def dispButtons():
