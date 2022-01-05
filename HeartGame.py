@@ -39,27 +39,146 @@ randomWord = generateWord()
 Label(window, text=randomWord).grid(row=0, column=1)
 
 
-def dispButtons():
-    def execute(character):
-        print(character)
-        # inpu.delete(0, "end")
-        inpu.insert(0, character)
-    r = 1
-    for row in buttons:
-        c = 1
-        for character in row:
-            # inpu.delete(0,"end")
-            # if character == "/":
-            # print(character)
-            tkinter.Button(window, text=character, command=lambda: execute(
-                character)).grid(row=r, column=c)
-            # else:
-            # inpu.insert(tkinter.END, column)
-            c += 1
-        r += 1
+# def dispButtons():
+#     def execute(character):
+#         print(character)
+#         # inpu.delete(0, "end")
+#         inpu.insert(0, character)
+#     r = 1
+#     for row in buttons:
+#         c = 1
+#         for character in row:
+#             # inpu.delete(0,"end")
+#             # if character == "/":
+#             # print(character)
+#             tkinter.Button(window, text=character, command=lambda: execute(
+#                 character)).grid(row=r, column=c)
+#             # else:
+#             # inpu.insert(tkinter.END, column)
+#             c += 1
+#         r += 1
 
+b1 = tkinter.Button(window, text="i")
+b1.grid(row=1, column=1)
 
-dispButtons()
+b2 = tkinter.Button(window, text="r")
+b2.grid(row=1, column=2)
+
+b3 = tkinter.Button(window, text="|")
+b3.grid(row=1, column=3)
+
+b4 = tkinter.Button(window, text="9")
+b4.grid(row=1, column=4)
+
+b5 = tkinter.Button(window, text="h")
+b5.grid(row=2, column=1)
+
+b6 = tkinter.Button(window, text="q")
+b6.grid(row=2, column=2)
+
+b7 = tkinter.Button(window, text="z")
+b7.grid(row=2, column=3)
+
+b8 = tkinter.Button(window, text="8")
+b8.grid(row=2, column=4)
+
+b9 = tkinter.Button(window, text="g")
+b9.grid(row=3, column=1)
+
+b10 = tkinter.Button(window, text="p")
+b10.grid(row=3, column=2)
+
+b11 = tkinter.Button(window, text="y")
+b11.grid(row=3, column=3)
+
+b12 = tkinter.Button(window, text="7")
+b12.grid(row=3, column=4)
+
+b13 = tkinter.Button(window, text="f")
+b13.grid(row=4, column=1)
+
+b14 = tkinter.Button(window, text="o")
+b14.grid(row=4, column=2)
+
+b15 = tkinter.Button(window, text="x")
+b15.grid(row=4, column=3)
+
+b16 = tkinter.Button(window, text="6")
+b16.grid(row=4, column=4)
+
+b17 = tkinter.Button(window, text="e")
+b17.grid(row=5, column=1)
+
+b18 = tkinter.Button(window, text="n")
+b18.grid(row=5, column=2)
+
+b19 = tkinter.Button(window, text="w")
+b19.grid(row=5, column=3)
+
+b20 = tkinter.Button(window, text="5")
+b20.grid(row=5, column=4)
+
+b21 = tkinter.Button(window, text="d")
+b21.grid(row=6, column=1)
+
+b22 = tkinter.Button(window, text="m")
+b22.grid(row=6, column=2)
+
+b23 = tkinter.Button(window, text="v")
+b23.grid(row=6, column=3)
+
+b24 = tkinter.Button(window, text="4")
+b24.grid(row=6, column=4)
+
+b25 = tkinter.Button(window, text="c")
+b25.grid(row=7, column=1)
+
+b26 = tkinter.Button(window, text="l")
+b26.grid(row=7, column=2)
+
+b27 = tkinter.Button(window, text="u")
+b27.grid(row=7, column=3)
+
+b28 = tkinter.Button(window, text="3")
+b28.grid(row=7, column=4)
+
+b29 = tkinter.Button(window, text="b")
+b29.grid(row=8, column=1)
+
+b30 = tkinter.Button(window, text="k")
+b30.grid(row=8, column=2)
+
+b31 = tkinter.Button(window, text="t")
+b31.grid(row=8, column=3)
+
+b32 = tkinter.Button(window, text="2")
+b32.grid(row=8, column=4)
+
+b33 = tkinter.Button(window, text="a")
+b33.grid(row=9, column=1)
+
+b34 = tkinter.Button(window, text="j")
+b34.grid(row=9, column=2)
+
+b35 = tkinter.Button(window, text="s")
+b35.grid(row=9, column=3)
+
+b36 = tkinter.Button(window, text="1")
+b36.grid(row=9, column=4)
+
+b37 = tkinter.Button(window, text="0")
+b37.grid(row=10, column=1)
+
+b38 = tkinter.Button(window, text="1")
+b38.grid(row=10, column=2)
+
+b39 = tkinter.Button(window, text="2")
+b39.grid(row=10, column=3)
+
+b40 = tkinter.Button(window, text="/")
+b40.grid(row=10, column=4)
+
+# dispButtons()
 
 # Reference format: "lead" = 13c4
 # Reference format: "medicare" = 14d8
