@@ -40,16 +40,21 @@ Label(window, text=randomWord).grid(row=0, column=1)
 
 
 def dispButtons():
-    def execute(column):
-        inpu.delete(0, "end")
-        inpu.insert(tkinter.END, column)
+    def execute(character):
+        print(character)
+        # inpu.delete(0, "end")
+        inpu.insert(0, character)
     r = 1
     for row in buttons:
         c = 1
-        for column in row:
+        for character in row:
             # inpu.delete(0,"end")
-            Button(window, text=column, command=execute(
-                column)).grid(row=r, column=c)
+            # if character == "/":
+            # print(character)
+            tkinter.Button(window, text=character, command=lambda: execute(
+                character)).grid(row=r, column=c)
+            # else:
+            # inpu.insert(tkinter.END, column)
             c += 1
         r += 1
 
